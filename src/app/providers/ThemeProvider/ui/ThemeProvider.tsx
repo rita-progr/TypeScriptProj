@@ -1,5 +1,5 @@
 import {FC, useMemo, useState} from 'react'
-import {LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeType} from "./ThemeContext";
+import {LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeType} from "../lib/ThemeContext";
 
 interface ThemeProviderProps {
     children: React.ReactNode; // Тип для children
@@ -15,6 +15,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({children})=> {
         theme:theme,
         setTheme:setTheme,
     }),[theme])
+
 
     return (
         <ThemeContext value={defaultProps}>

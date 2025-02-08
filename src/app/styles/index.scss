@@ -1,6 +1,6 @@
-@import 'reset';
-@import 'themes/dark';
-@import 'themes/normal';
+@use 'reset';
+@use 'themes/dark';
+@use 'themes/normal';
 
 .app{
   font: var(--font-m);

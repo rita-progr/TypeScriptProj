@@ -1,0 +1,1 @@
+export {MainAsync} from "pages/MainPage/ui/Main.async";

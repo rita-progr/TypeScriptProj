@@ -14,7 +14,7 @@ export function buildWebpackConfig(options:BuildOptions):webpack.Configuration {
             rules: BuildLoaders(options)
         },
         devtool: isDev ? 'inline-source-map': undefined,
-        resolve: BuildResolvers(),
+        resolve: BuildResolvers(options),
         output:{
             filename: "[name].[contenthash].js",
             path: paths.build,
