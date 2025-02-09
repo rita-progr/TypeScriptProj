@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'themes/dark';
 @use 'themes/normal';
+@import "variables/global";
 
 .app{
   font: var(--font-m);
@@ -8,4 +9,7 @@
   color: var(--primary-color);
 
   min-height: 100vh;
+}
+.content-page{
+  display: flex;
 }

@@ -1,0 +1,1 @@
+export {SideBar} from "widgets/SideBar/SideBar/ui/SideBar";

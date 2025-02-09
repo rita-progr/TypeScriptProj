@@ -1,0 +1,1 @@
+export {ThemeSwitchers} from "widgets/ThemeSwitchers/ui/ThemeSwichers";

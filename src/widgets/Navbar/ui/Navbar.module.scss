@@ -1,7 +1,9 @@
-.navbar{
+.Navbar{
   background-color: var(--inverted--primary-bg);
+  height: var(--navbar-height);
   padding:1.5rem;
   display: flex;
   justify-content:flex-end;
   gap: 1rem;
+
 }

@@ -8,7 +8,7 @@ interface NavbarProps{
 
 export const Navbar = ({className}:NavbarProps) => {
     return (
-        <div className={classNames(cls.navbar, {},[className])}>
+        <div className={classNames(cls.Navbar, {},[className])}>
             <CustomLink to={'/'}>
                 Главная
             </CustomLink>
