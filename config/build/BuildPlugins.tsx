@@ -4,7 +4,7 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 
 
-export function BuildPlugins({paths}:BuildOptions):webpack.WebpackPluginInstance[] {
+export function BuildPlugins({paths, isDev}:BuildOptions):webpack.WebpackPluginInstance[] {
     return [
         new HTMLWebpackPlugin({
             template: paths.html,
@@ -14,5 +14,8 @@ export function BuildPlugins({paths}:BuildOptions):webpack.WebpackPluginInstance
             chunkFilename: "css/[name].[contenthash:8].css",
         }),
         new webpack.ProgressPlugin(),
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(isDev),
+        })
     ]
 }
