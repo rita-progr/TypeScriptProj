@@ -19,6 +19,17 @@ export function BuildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
         ]
     }
 
+    const BabelLoader = {
+        test: /\.m?(ts|js|tsx|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    }
+
     const typesStyles = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -42,6 +53,7 @@ export function BuildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
             exclude: /node_modules/,
         }
     return [
+        BabelLoader,
         typescriptLoader,
         typesStyles,
         svgLoader,
