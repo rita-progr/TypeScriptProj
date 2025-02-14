@@ -1,4 +1,3 @@
-import cls from './LanguageSwitcher.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
@@ -15,7 +14,7 @@ export const LanguageSwitcher = ({className}:LanguageSwitcherProps) => {
     }
     return (
         <CustomButton
-            className={classNames(cls.LanguageSwitcher, {},[className])}
+            className={classNames("", {},[className])}
             onClick={toggle}
         >
             {t('translate')}
