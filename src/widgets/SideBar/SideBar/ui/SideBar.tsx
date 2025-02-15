@@ -3,6 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {useState} from "react";
 import {ThemeSwitchers} from "widgets/ThemeSwitchers";
 import {LanguageSwitcher} from "widgets/LanguageSwitcher";
+import {CustomButton} from "../../../../shared/ui/CustomButton/CustomButton";
 
 interface SideBarProps{
     className?: string;
@@ -16,8 +17,8 @@ export const SideBar = ({className}:SideBarProps) => {
     }
 
     return (
-        <div className={classNames(cls.SideBar, {[cls.collapsed]:collapsed},[className])}>
-            <div onClick={toggleCollapse}>toggle</div>
+        <div data-testid = "sidebar" className={classNames(cls.SideBar, {[cls.collapsed]:collapsed},[className])}>
+            <CustomButton data-testid = "sidebar-toggle" onClick={toggleCollapse}>toggle</CustomButton>
             <div className={classNames(cls.switchers)}>
                 <ThemeSwitchers/>
                 <LanguageSwitcher/>
