@@ -7,13 +7,13 @@ on:
     branches: [master]
 jobs:
   pipline:
-    runs-on: [macos-latest]
+    runs-on: [ubuntu-latest]
     strategy:
       matrix:
         node-version: [ 20.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Starting Node.js ${{ matrix.node-version }}
         run: echo "Starting Node.js ${{ matrix.node-version }}"
       - uses: actions/setup-node@v4
