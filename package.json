@@ -13,8 +13,8 @@
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "clean": "rd /s /q build",
     "unit": "jest --config ./config/jest/jest.config.ts",
-    "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook": "storybook dev -p 6006 --config-dir ./config/storybook",
+    "build-storybook": "storybook build --config-dir ./config/storybook"
   },
   "keywords": [],
   "author": "",
