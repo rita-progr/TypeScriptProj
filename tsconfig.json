@@ -3,6 +3,7 @@
     "types": ["jest", "@testing-library/jest-dom"],
     "outDir": "./dist/",
     "noImplicitAny": true,
+    "lib": ["es2017", "dom"],
     "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
