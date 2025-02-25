@@ -1,18 +1,40 @@
 .CustomButton{
   cursor: pointer;
+  color: var(--inverted-primary-color);
+
 }
 
 .clear{
-  padding: 0;
-  margin: 0;
-  border:none;
-  background: none;
-  outline: none;
+  border:none
+}
+
+.l{
+  font-size: var(--font-size-l);
+  padding: var(--padding-l);
+}
+
+.m{
+  font-size: var(--font-size-m);
+  padding: var(--padding-m);
+}
+
+.s{
+  font-size: var(--font-line-s);
+  padding: var(--padding-s);
+}
+
+.background_theme{
+  background: var(--bg-color);
+}
+
+.backgroundInverted_theme{
+  background: var(--inverted--primary-bg);
 }
 
 .outline{
   border: 1px solid var(--primary-color);
   background: none;
   padding: 5px 10px;
-  color: var(--primary-color);
+
+  //color: var(--primary-color);
 }
