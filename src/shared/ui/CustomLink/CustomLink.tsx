@@ -10,13 +10,15 @@ export enum CustomLinkType {
 
 interface CustomLinkProps extends LinkProps {
     className?: string;
-    theme?:CustomLinkType
+    theme?:CustomLinkType;
+    short?: boolean;
 }
 
 export const CustomLink:FC<CustomLinkProps> = (props) => {
     const {className ,
         children,
         to,
+        short,
         theme = CustomLinkType.PRIMARY,
         ...otherProps
     } = props;

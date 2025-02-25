@@ -5,7 +5,7 @@
     "noImplicitAny": true,
     "lib": ["es2017", "dom"],
     "module": "ESNext",
-    "target": "es5",
+    "target": "es2017",
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",

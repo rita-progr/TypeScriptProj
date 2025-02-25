@@ -1,8 +1,3 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 import type {Config} from 'jest';
 import path from "path";
 
@@ -40,7 +35,10 @@ const config: Config = {
     `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`
   ],
   modulePaths: ["<rootDir>src"],
-  setupFilesAfterEnv: ['<rootDir>config/jest/setUpTests.ts'],
+  setupFilesAfterEnv: [
+    '<rootDir>config/jest/setUpTests.ts', // Твои текущие настройки
+    '<rootDir>config/jest/jest.i18n.mock.ts', // Добавь мок для i18next
+  ],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx')
