@@ -1,17 +1,18 @@
 
 import {fireEvent, render, screen} from "@testing-library/react";
 import {SideBar} from "widgets/SideBar/SideBar";
+import {renderComponents} from "shared/lib/tests/renderComponent/RenderComponents";
 
 
 
 describe('CustomButton',()=>{
     test('test render',()=>{
-        render(<SideBar/>)
+        renderComponents(<SideBar/>)
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     })
 
     test('test toggle',()=>{
-        render(<SideBar/>)
+        renderComponents(<SideBar/>)
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);
