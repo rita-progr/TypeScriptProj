@@ -12,9 +12,14 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    plugins: [
+      "react-hooks"
+    ],
     rules: {
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/no-unused-vars": "warn", // Enable the rule
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error"
     },
   },
 ];

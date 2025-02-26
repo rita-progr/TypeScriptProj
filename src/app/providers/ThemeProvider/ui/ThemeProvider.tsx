@@ -3,13 +3,19 @@ import {LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeType} from "../lib/ThemeCont
 
 interface ThemeProviderProps {
     children: React.ReactNode; // Тип для children
+    initialTheme?: ThemeType;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({children})=> {
+const ThemeProvider: FC<ThemeProviderProps> = (props)=> {
+
+    const {
+        children,
+        initialTheme
+    } = props
 
     const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeType || ThemeType.LIGHT;
 
-    const [theme,setTheme] = useState<ThemeType>(defaultTheme);
+    const [theme,setTheme] = useState<ThemeType>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(()=>({
         theme:theme,

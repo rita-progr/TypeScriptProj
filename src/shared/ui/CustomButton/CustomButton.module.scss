@@ -1,7 +1,13 @@
 .CustomButton{
   cursor: pointer;
-  color: var(--inverted-primary-color);
+}
 
+.inverted{
+  color: var(--inverted-primary-color);
+}
+
+.basic{
+  color: var(--primary-color);
 }
 
 .clear{
@@ -20,7 +26,6 @@
 
 .s{
   font-size: var(--font-line-s);
-  padding: var(--padding-s);
 }
 
 .background_theme{
