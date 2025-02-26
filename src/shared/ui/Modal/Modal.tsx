@@ -37,7 +37,7 @@ export const Modal = (props:ModalProps) => {
         if(e.key === 'Esc'){
             closeHandler();
         }
-    },[closeHandler, isOpen]);
+    },[closeHandler]);
 
     const onContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
