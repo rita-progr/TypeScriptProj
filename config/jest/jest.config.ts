@@ -24,7 +24,7 @@ const config: Config = {
   testMatch: [
     `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`
   ],
-  modulePaths: ["<rootDir>/src"],
+  modulePaths: ["src"],
   setupFilesAfterEnv: [
     '<rootDir>config/jest/setUpTests.ts',
     '<rootDir>config/jest/jest.i18n.mock.ts',
@@ -32,8 +32,6 @@ const config: Config = {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx'),
-    '^app/(.*)$': path.resolve(__dirname, 'src/app/$1'),
-    '^shared/(.*)$': path.resolve(__dirname, 'src/shared/$1'),
   },
   globals: {
     __DEV__: true,
