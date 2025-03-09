@@ -6,12 +6,15 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 import './shared/config/i18n/i18n';
 import {ErrorBoundary} from "app/providers/ErrorBoundary";
+import {StoreProvider} from "app/providers/StoreProveder";
 root.render(
-    <BrowserRouter>
-        <ErrorBoundary>
-        <ThemeProvider>
-            <App/>
-        </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>
+    <StoreProvider>
+        <BrowserRouter>
+            <ErrorBoundary>
+            <ThemeProvider>
+                <App/>
+            </ThemeProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
+    </StoreProvider>
 )
