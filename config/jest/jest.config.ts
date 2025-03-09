@@ -32,10 +32,24 @@ const config: Config = {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx'),
+    '^entities/(.*)$': '<rootDir>/src/entities/$1',
+    '^app/(.*)$': '<rootDir>/src/app/$1',
+    '^shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
+    '^pages/(.*)$': '<rootDir>/src/pages/$1',
   },
   globals: {
-    __DEV__: true,
+    __IS_DEV__: true,
   },
+  // transformIgnorePatterns: [
+  //   "/node_modules/",
+  //   // "\\.pnp\\.[^\\/]+$"
+  // ],
+  // A map from regular expressions to paths to transformers
+  // transform: {
+  //   '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+  // },
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -176,14 +190,9 @@ const config: Config = {
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
 
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

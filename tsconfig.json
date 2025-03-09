@@ -12,7 +12,11 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "entities/*": ["./src/entities/*"],
+      "app/*": ["./src/app/*"],
+      "shared/*": ["./src/shared/*"],
+      "widgets/*": ["./src/widgets/*"],
+      "pages/*": ["./src/pages/*"]
     }
   },
   "ts-node": {
