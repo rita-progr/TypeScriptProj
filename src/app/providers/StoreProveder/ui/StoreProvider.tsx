@@ -18,6 +18,7 @@ export const StoreProvider = (props:StoreProviderProps) => {
     } = props;
 
     const store = createStore(initialState as StateSchema);
+
     return (
         <Provider store = {store}>
             {children}

@@ -12,15 +12,12 @@ interface UserModalProps{
 }
 
 export const UserModal = ({className, isOpen, onClose}:UserModalProps) => {
-    const {t} = useTranslation();
+
     return (
         <Modal className={classNames(cls.UserModal, {},[className])}
         isOpen={isOpen}
         onClose={onClose}>
             <UserForm/>
-            <CustomButton color={ColorButton.INVERTED} theme={ThemeButton.BACKGROUND_INVERTED} className={cls.userBtn}>
-                {t("Войти")}
-            </CustomButton>
         </Modal>
     )
 }
