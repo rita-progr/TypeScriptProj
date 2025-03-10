@@ -16,7 +16,8 @@
       "app/*": ["./src/app/*"],
       "shared/*": ["./src/shared/*"],
       "widgets/*": ["./src/widgets/*"],
-      "pages/*": ["./src/pages/*"]
+      "pages/*": ["./src/pages/*"],
+      "features/*": ["./src/features/*"]
     }
   },
   "ts-node": {

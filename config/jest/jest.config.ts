@@ -27,7 +27,7 @@ const config: Config = {
   modulePaths: ["src"],
   setupFilesAfterEnv: [
     '<rootDir>config/jest/setUpTests.ts',
-    '<rootDir>config/jest/jest.i18n.mock.ts',
+    // '<rootDir>config/jest/jest.i18n.mock.ts',
   ],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
@@ -37,6 +37,7 @@ const config: Config = {
     '^shared/(.*)$': '<rootDir>/src/shared/$1',
     '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^features/(.*)$': '<rootDir>/src/features/$1',
   },
   globals: {
     __IS_DEV__: true,
