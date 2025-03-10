@@ -9,6 +9,11 @@ export enum ThemeButton{
     BACKGROUND_INVERTED = 'backgroundInverted_theme',
 }
 
+export enum ColorButton {
+    INVERTED = 'inverted',
+    BASIC = 'basic',
+}
+
 export enum ButtonSize{
     LARGE= 'l',
     MEDIUM='m',
@@ -19,6 +24,7 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?:ThemeButton
     size?:ButtonSize
+    color?:ColorButton
 }
 
 export const CustomButton:FC<CustomButtonProps> = (props) => {
@@ -27,16 +33,14 @@ export const CustomButton:FC<CustomButtonProps> = (props) => {
         className,
         children,
         size,
+        color = ColorButton.BASIC,
         theme = ThemeButton.CLEAR,
         ...otherProps
     } = props;
 
-    const mods: Record<string,boolean> = {
-
-    }
 
     return (
-        <button className={classNames(cls.CustomButton, mods,[className, cls[size], cls[theme]  ])}
+        <button className={classNames(cls.CustomButton , {} ,[className, cls[size], cls[theme], cls[color]  ])}
                 {...otherProps}>
             {children}
         </button>

@@ -28,6 +28,21 @@ export default ({config}:{config:webpack.Configuration})=>{
         use: ['@svgr/webpack'],
     })
 
+    config.resolve.alias = {
+        ...config.resolve.alias,
+        entities: path.resolve(__dirname, '../../src/entities'),
+        features: path.resolve(__dirname, '../../src/features'),
+        shared: path.resolve(__dirname, '../../src/shared'),
+        pages: path.resolve(__dirname, '../../src/pages'),
+        widgets: path.resolve(__dirname, '../../src/widgets'),
+    };
+
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true), // Установите значение true для режима разработки
+        })
+    );
+
     config.module.rules.push(buildCssLoader(true));
 
     return config;

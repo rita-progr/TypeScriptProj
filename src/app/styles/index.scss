@@ -3,10 +3,18 @@
 @use 'themes/normal';
 @import "variables/global";
 
-.app{
+body{
   font: var(--font-m);
-  background-color: var(--bg-color);
+}
+
+.app,
+.Modal{
   color: var(--primary-color);
+  font: var(--font-m);
+}
+
+.app{
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
 

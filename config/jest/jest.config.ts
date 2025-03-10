@@ -2,23 +2,13 @@ import type {Config} from 'jest';
 import path from "path";
 
 const config: Config = {
-  // All imported modules in your tests should be mocked automatically
-  // automock: false,
-
-  // Stop running tests after `n` failures
-  // bail: 0,
-
-  // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/5p/y1pyplps0hz5r0b57n8mz2sr0000gn/T/jest_dx",
-
-  // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: [
     "/node_modules/"
   ],
   moduleDirectories: [
-    "node_modules"
+    "node_modules",
   ],
   moduleFileExtensions: [
     "js",
@@ -34,15 +24,33 @@ const config: Config = {
   testMatch: [
     `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`
   ],
-  modulePaths: ["<rootDir>src"],
+  modulePaths: ["src"],
   setupFilesAfterEnv: [
-    '<rootDir>config/jest/setUpTests.ts', // Твои текущие настройки
-    '<rootDir>config/jest/jest.i18n.mock.ts', // Добавь мок для i18next
+    '<rootDir>config/jest/setUpTests.ts',
+    // '<rootDir>config/jest/jest.i18n.mock.ts',
   ],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx')
+    '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx'),
+    '^entities/(.*)$': '<rootDir>/src/entities/$1',
+    '^app/(.*)$': '<rootDir>/src/app/$1',
+    '^shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
+    '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^features/(.*)$': '<rootDir>/src/features/$1',
   },
+  globals: {
+    __IS_DEV__: true,
+  },
+  // transformIgnorePatterns: [
+  //   "/node_modules/",
+  //   // "\\.pnp\\.[^\\/]+$"
+  // ],
+  // A map from regular expressions to paths to transformers
+  // transform: {
+  //   '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+  // },
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -90,7 +98,7 @@ const config: Config = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -183,14 +191,9 @@ const config: Config = {
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
 
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

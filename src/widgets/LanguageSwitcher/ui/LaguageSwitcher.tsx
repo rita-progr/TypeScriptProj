@@ -1,5 +1,5 @@
 import {classNames} from "shared/lib/classNames/classNames";
-import {CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 
 interface LanguageSwitcherProps{
@@ -17,6 +17,7 @@ export const LanguageSwitcher = ({className, short}:LanguageSwitcherProps) => {
         <CustomButton
             className={classNames("", {},[className])}
             onClick={toggle}
+            color={ColorButton.INVERTED}
         >
             {short ? t('translate_short'):t('translate') }
         </CustomButton>
