@@ -20,7 +20,7 @@ export const loginByUsername = createAsyncThunk<IUser, LoginByUserNameProps, {re
 
         }catch(err){
             console.log(err);
-            thunkAPI.rejectWithValue('Произошла ошибка... ')
+            return thunkAPI.rejectWithValue('Произошла ошибка... ')
         }
 
     },

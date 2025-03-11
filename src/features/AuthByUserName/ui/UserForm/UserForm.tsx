@@ -3,12 +3,14 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {Input} from "shared/ui/Input/Input";
 import {useDispatch, useSelector} from "react-redux";
 import {getLogin} from "../../model/selectors/getAuthByUserName/getAuthByUserName";
-import {loginActions} from "features/AuthByUserName";
+
 import {loginByUsername} from "features/AuthByUserName/model/services/loginByUserName/loginByUserName";
 import {useCallback} from "react";
 import {ColorButton, CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {AppDispatch} from "app/providers/StoreProveder";
+import {loginActions} from "../../model/slice/AuthByUserName";
+import {Text, TextTheme} from "shared/ui/Text/Text";
 
 
 interface UserFormProps{
@@ -17,7 +19,7 @@ interface UserFormProps{
 
 export const UserForm = ({className}:UserFormProps) => {
     const {t} = useTranslation();
-    const {username, password, error} = useSelector(getLogin);
+    const {username, password, error, isLoading} = useSelector(getLogin);
     const dispatch: AppDispatch = useDispatch();
 
 
@@ -35,7 +37,7 @@ export const UserForm = ({className}:UserFormProps) => {
 
     return (
         <div className={classNames(cls.UserForm, {}, [className])}>
-            {error && <p>{error}</p>}
+            {error && <Text text={error} theme={TextTheme.ERROR}/>}
             <div className={cls.Input}>
                 <Input placeholder={'Введите логин'}
                 value={username}
@@ -47,7 +49,8 @@ export const UserForm = ({className}:UserFormProps) => {
             <CustomButton color={ColorButton.INVERTED}
                           theme={ThemeButton.BACKGROUND_INVERTED}
                           className={cls.userBtn}
-                          onClick={onLoginClick}>
+                          onClick={onLoginClick}
+            disabled={isLoading}>
                 {t("Войти")}
             </CustomButton>
         </div>

@@ -25,6 +25,7 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?:ThemeButton
     size?:ButtonSize
     color?:ColorButton
+    disabled?:boolean
 }
 
 export const CustomButton:FC<CustomButtonProps> = (props) => {
@@ -35,12 +36,14 @@ export const CustomButton:FC<CustomButtonProps> = (props) => {
         size,
         color = ColorButton.BASIC,
         theme = ThemeButton.CLEAR,
+        disabled,
         ...otherProps
     } = props;
 
 
     return (
-        <button className={classNames(cls.CustomButton , {} ,[className, cls[size], cls[theme], cls[color]  ])}
+        <button className={classNames(cls.CustomButton , {[cls.disabled]:disabled } ,[className, cls[size], cls[theme], cls[color]  ])}
+                disabled={disabled}
                 {...otherProps}>
             {children}
         </button>
