@@ -4,6 +4,8 @@ import {useCallback, useState} from "react";
 import {UserModal} from "features/AuthByUserName";
 import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserAuthData, userActions} from "entities/User";
 
 
 
@@ -14,6 +16,8 @@ interface NavbarProps{
 export const Navbar = ({className}:NavbarProps) => {
 
     const [isAutModalOpen, setIsAutModalOpen] = useState(false);
+    const dispatch = useDispatch();
+    const userData = useSelector(getUserAuthData)
 
     const onCloseModal = useCallback(() => {
         setIsAutModalOpen(false)
@@ -23,14 +27,28 @@ export const Navbar = ({className}:NavbarProps) => {
         setIsAutModalOpen(true)
     }, []);
 
+    const onLogout = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
+
     const {t} = useTranslation();
 
-    return (
-        <div className={classNames(cls.Navbar, {},[className])}>
-            <UserModal onClose = {onCloseModal} isOpen={isAutModalOpen}/>
+    if(userData){
+        return (
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <CustomButton onClick={onLogout} color={ColorButton.INVERTED}>
+                    {t("Выйти")}
+                </CustomButton>
+            </div>
+                )
+                }
+
+        return (
+        <div className={classNames(cls.Navbar, {}, [className])}>
+            <UserModal onClose={onCloseModal} isOpen={isAutModalOpen}/>
             <CustomButton onClick={onOpenModal} color={ColorButton.INVERTED}>
                 {t("Войти")}
             </CustomButton>
         </div>
-    )
-}
+        )
+        }

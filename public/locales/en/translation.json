@@ -5,5 +5,7 @@
   "Something went wrong": "Something went wrong",
   "Выбросить ошибку": "Throw Error",
   "translate_short": "En",
-  "Войти": "Login"
+  "Войти": "Login",
+  "Выйти": "Logout",
+  "Вы ввели неверный логин или пароль ":"Incorrect login or password"
 }

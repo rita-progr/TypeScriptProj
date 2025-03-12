@@ -4,6 +4,7 @@ import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator/T
 import {ThemeType} from "../../src/app/providers/ThemeProvider";
 import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator/RouterDecorator";
 import {ReduxDecorator} from "../../src/shared/config/storybook/ReduxDecorator/ReduxDecorator";
+import {TranslationDecorator} from "../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator";
 
 const preview: Preview = {
   parameters: {
@@ -18,7 +19,8 @@ const preview: Preview = {
     StyleDecorator,
       ThemeDecorator(ThemeType.LIGHT),
       RouterDecorator,
-    ReduxDecorator
+    ReduxDecorator,
+    TranslationDecorator
   ],
 };
 

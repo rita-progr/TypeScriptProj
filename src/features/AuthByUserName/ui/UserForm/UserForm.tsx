@@ -35,6 +35,8 @@ export const UserForm = ({className}:UserFormProps) => {
         dispatch( loginByUsername ({ username, password}))
     },[dispatch, password, username])
 
+
+
     return (
         <div className={classNames(cls.UserForm, {}, [className])}>
             {error && <Text text={error} theme={TextTheme.ERROR}/>}
