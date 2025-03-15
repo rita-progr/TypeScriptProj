@@ -2,22 +2,25 @@ import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
 import {StateSchema} from "./StateSchema";
 import {userReducer} from "entities/User";
 import {counterReducer} from "entities/Counter";
-import {loginReducer} from "features/AuthByUserName";
+import {createReducerManager} from "app/providers/StoreProveder/config/reduxManager";
 
 
 export const createStore = (initialState?:StateSchema) => {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        user: userReducer,
-        login: loginReducer
+        user: userReducer
     }
+    const reducerManager = createReducerManager(rootReducer);
 
-    return configureStore<StateSchema>({
-        reducer: rootReducer,
+    const store = configureStore<StateSchema>({
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState:initialState
     })
+    //@ts-ignore
+    store.reducerManager = reducerManager;
+    return store;
 }
 
 export type AppStore = ReturnType<typeof createStore>

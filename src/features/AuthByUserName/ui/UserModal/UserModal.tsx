@@ -1,23 +1,25 @@
 import cls from './UserModal.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {UserForm} from "../UserForm/UserForm";
+import {UserFormAsync} from "../UserForm/UserForm.async";
 import {Modal} from "shared/ui/Modal/Modal";
-import {ColorButton, CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
-import {useTranslation} from "react-i18next";
+import {Suspense} from "react";
 
-interface UserModalProps{
+
+export interface UserModalProps{
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
 }
-
-export const UserModal = ({className, isOpen, onClose}:UserModalProps) => {
+ const UserModal = ({className, isOpen, onClose}:UserModalProps) => {
 
     return (
         <Modal className={classNames(cls.UserModal, {},[className])}
         isOpen={isOpen}
         onClose={onClose}>
-            <UserForm/>
+            <Suspense fallback={""}>
+                <UserFormAsync/>
+            </Suspense>
         </Modal>
     )
 }
+export default UserModal;

@@ -45,7 +45,9 @@ export const Navbar = ({className}:NavbarProps) => {
 
         return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <UserModal onClose={onCloseModal} isOpen={isAutModalOpen}/>
+            {isAutModalOpen &&
+                <UserModal onClose={onCloseModal} isOpen={isAutModalOpen}/>
+            }
             <CustomButton onClick={onOpenModal} color={ColorButton.INVERTED}>
                 {t("Войти")}
             </CustomButton>

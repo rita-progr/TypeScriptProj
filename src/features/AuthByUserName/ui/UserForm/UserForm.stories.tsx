@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {UserForm } from './UserForm';
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {ThemeType} from "app/providers/ThemeProvider";
-
-
-
+import UserForm from './UserForm';
 
 const meta = {
     title: 'shared/UserForm',
