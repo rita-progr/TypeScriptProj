@@ -18,7 +18,7 @@ export const createStore = (initialState?:StateSchema) => {
         devTools: __IS_DEV__,
         preloadedState:initialState
     })
-    //@ts-ignore
+    //@ts-expect-error
     store.reducerManager = reducerManager;
     return store;
 }
