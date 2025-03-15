@@ -11,7 +11,7 @@ export interface StateSchema {
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    //@ts-expect-error
+    //@ts-expect-error: This is a temporary workaround for a known issue
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
     add : (key: StateSchemaKeys, reducer: Reducer)=> void;
     remove : (key: StateSchemaKeys)=> void;
