@@ -1,13 +1,10 @@
 import {StateSchema} from "app/providers/StoreProveder";
 import {getCounter} from "./getCounter";
 
-type DeepPartial<T> = {
-    [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
-};
 
 describe('getCounter', () => {
     test('should return correct object', ()=>{
-        const state: DeepPartial<StateSchema> = {
+        const state: Partial<StateSchema> = {
             counter: {value: 10}
         }
 
