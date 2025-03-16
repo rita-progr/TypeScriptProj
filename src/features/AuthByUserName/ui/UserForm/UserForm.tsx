@@ -27,7 +27,7 @@ const intialReducer: ReducersList = {
 
 const UserForm = memo(({className}:UserFormProps) => {
     const {t} = useTranslation();
-    const username = useSelector(getUsername);
+    const name = useSelector(getUsername);
     const password = useSelector(getPassword);
     const isLoading = useSelector(getLoading);
     const error = useSelector(getError);
@@ -43,8 +43,8 @@ const UserForm = memo(({className}:UserFormProps) => {
     }
 
     const onLoginClick = useCallback(() => {
-        dispatch( loginByUsername ({ username, password}))
-    },[dispatch, password, username])
+        dispatch( loginByUsername ({ name, password}))
+    },[dispatch, password, name])
 
 
 
@@ -54,7 +54,7 @@ const UserForm = memo(({className}:UserFormProps) => {
                 {error && <Text text={error} theme={TextTheme.ERROR}/>}
                 <div className={cls.Input}>
                     <Input placeholder={'Введите логин'}
-                           value={username}
+                           value={name}
                            onChange={onUserNameChange}/>
                     <Input placeholder={'Введите пароль'}
                            value={password}
