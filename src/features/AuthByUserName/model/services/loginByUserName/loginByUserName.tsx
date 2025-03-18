@@ -5,7 +5,7 @@ import i18n from "shared/config/i18n/i18n";
 import {USER_LOCALSTORAGE_KEY} from "shared/const/localstorage";
 
 interface LoginByUserNameProps{
-    name:string;
+    username:string;
     password:string;
 }
 
@@ -13,6 +13,7 @@ export const loginByUsername = createAsyncThunk<IUser, LoginByUserNameProps, {re
     'login/loginByUsername',
     async (authData, thunkAPI) => {
         try {
+            console.log(authData);
             const response = await axios.post('http://localhost:8000/login', authData);
 
             if(!response.data){
