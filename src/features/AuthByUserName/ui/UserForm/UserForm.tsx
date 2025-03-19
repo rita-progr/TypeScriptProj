@@ -27,7 +27,7 @@ const intialReducer: ReducersList = {
     login: loginReducer
 }
 
-const UserForm = memo(({className, onSuccess}:UserFormProps) => {
+const UserForm = memo( function UserForm({className, onSuccess}:UserFormProps) {
     const {t} = useTranslation();
     const username = useSelector(getUsername);
     const password = useSelector(getPassword);
@@ -77,5 +77,4 @@ const UserForm = memo(({className, onSuccess}:UserFormProps) => {
 
     )
 })
-UserForm.displayName = 'UserForm';
 export default UserForm;

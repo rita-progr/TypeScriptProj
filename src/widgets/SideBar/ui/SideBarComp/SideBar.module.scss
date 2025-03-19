@@ -15,21 +15,6 @@
   width: 100%;
 }
 
-.link{
-  display:block;
-}
-
-.allLinks{
-  display: flex;
-  align-items: center;
-  gap:0.9rem;
-}
-
-.links{
-  display:flex;
-  flex-direction: column;
-  margin-left:1rem ;
-}
 
 .collapsed{
   width:var(--sidebar-width-collapsed);
@@ -64,13 +49,5 @@
   background: var(--inverted--primary-bg);
 }
 
-.icon{
-  fill: var(--bg-color);
-
-}
-
-.iconAbout{
-  stroke: var(--bg-color);
-}
 
 

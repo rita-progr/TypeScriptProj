@@ -1,6 +1,6 @@
 import cls from './CustomButton.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ButtonHTMLAttributes, FC} from "react";
+import {ButtonHTMLAttributes, FC, memo} from "react";
 
 export enum ThemeButton{
     CLEAR='clear',
@@ -28,7 +28,7 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?:boolean
 }
 
-export const CustomButton:FC<CustomButtonProps> = (props) => {
+export const CustomButton= memo(function CustomButton(props:CustomButtonProps){
 
     const {
         className,
@@ -48,4 +48,4 @@ export const CustomButton:FC<CustomButtonProps> = (props) => {
             {children}
         </button>
     )
-}
+})

@@ -1,6 +1,6 @@
 import cls from './Navbar.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {useCallback, useState} from "react";
+import {memo, useCallback, useState} from "react";
 import {UserModal} from "features/AuthByUserName";
 import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
@@ -13,7 +13,7 @@ interface NavbarProps{
     className?: string;
 }
 
-export const Navbar = ({className}:NavbarProps) => {
+export const Navbar = memo(function Navbar({className}:NavbarProps) {
 
     const [isAutModalOpen, setIsAutModalOpen] = useState(false);
     const dispatch = useDispatch();
@@ -53,4 +53,5 @@ export const Navbar = ({className}:NavbarProps) => {
             </CustomButton>
         </div>
         )
-        }
+
+        })
