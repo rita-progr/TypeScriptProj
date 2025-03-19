@@ -1,0 +1,1 @@
+export {ProfileAsync as ProfilePage} from "pages/ProfilePage/ui/ProfilePage.async";

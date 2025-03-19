@@ -15,23 +15,25 @@ import {getPassword} from "../../model/selectors/getAuthByPassword/getAuthByPass
 import {getLoading} from "../../model/selectors/getAuthByLoading/getAuthByLoading";
 import {getError} from "../../model/selectors/getAuthByError/getAuthByError";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 
 export interface UserFormProps{
     className?: string;
+    onSuccess?:() => void;
 }
 
 const intialReducer: ReducersList = {
     login: loginReducer
 }
 
-const UserForm = memo(({className}:UserFormProps) => {
+const UserForm = memo(({className, onSuccess}:UserFormProps) => {
     const {t} = useTranslation();
     const username = useSelector(getUsername);
     const password = useSelector(getPassword);
     const isLoading = useSelector(getLoading);
     const error = useSelector(getError);
-    const dispatch: AppDispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
 
     const onUserNameChange = (value:string) => {
@@ -42,9 +44,12 @@ const UserForm = memo(({className}:UserFormProps) => {
         dispatch(loginActions.setPassword(value));
     }
 
-    const onLoginClick = useCallback(() => {
-        dispatch( loginByUsername ({ username, password}))
-    },[dispatch, password, username])
+    const onLoginClick = useCallback( async () => {
+        const res = await dispatch( loginByUsername ({ username, password}))
+        if(res.meta.requestStatus === 'fulfilled'){
+            onSuccess();
+        }
+    },[dispatch, onSuccess, password, username])
 
 
 

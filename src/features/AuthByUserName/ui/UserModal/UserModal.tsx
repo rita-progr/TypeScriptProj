@@ -17,7 +17,7 @@ export interface UserModalProps{
         isOpen={isOpen}
         onClose={onClose}>
             <Suspense fallback={""}>
-                <UserFormAsync/>
+                <UserFormAsync onSuccess={onClose}/>
             </Suspense>
         </Modal>
     )
