@@ -3,9 +3,11 @@ import {StateSchema} from "./StateSchema";
 import {userReducer} from "entities/User";
 import {counterReducer} from "entities/Counter";
 import {createReducerManager} from "./reduxManager";
+import {$api} from "shared/api/api";
+import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
 
 
-export const createStore = (initialState?:StateSchema) => {
+export const createReduxStore = (initialState?:StateSchema, navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>) => {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
@@ -13,15 +15,23 @@ export const createStore = (initialState?:StateSchema) => {
     }
     const reducerManager = createReducerManager(rootReducer);
 
-    const store = configureStore<StateSchema>({
+    const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState:initialState
+        preloadedState:initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument:{
+                    api: $api,
+                    navigate
+                }
+            }
+        })
     })
     //@ts-expect-error: This is a temporary workaround for a known issue
     store.reducerManager = reducerManager;
     return store;
 }
 
-export type AppStore = ReturnType<typeof createStore>
+export type AppStore = ReturnType<typeof createReduxStore>
 export type AppDispatch = AppStore['dispatch']

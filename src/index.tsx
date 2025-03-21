@@ -8,13 +8,13 @@ import './shared/config/i18n/i18n';
 import {ErrorBoundary} from "app/providers/ErrorBoundary";
 import {StoreProvider} from "app/providers/StoreProveder";
 root.render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ErrorBoundary>
             <ThemeProvider>
                 <App/>
             </ThemeProvider>
             </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>
+        </StoreProvider>
+    </BrowserRouter>
 )

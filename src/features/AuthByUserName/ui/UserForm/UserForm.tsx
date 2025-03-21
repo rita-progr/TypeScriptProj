@@ -1,14 +1,13 @@
 import cls from './UserForm.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {Input} from "shared/ui/Input/Input";
-import {useDispatch, useSelector, useStore} from "react-redux";
+import { useSelector} from "react-redux";
 import {getUsername} from "../../model/selectors/getAuthByUserName/getAuthByUserName";
 
 import {loginByUsername} from "features/AuthByUserName/model/services/loginByUserName/loginByUserName";
-import {memo, useCallback, useEffect} from "react";
+import {memo, useCallback} from "react";
 import {ColorButton, CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
-import {AppDispatch, ReduxWithStoreManager} from "app/providers/StoreProveder";
 import {loginActions, loginReducer} from "../../model/slice/AuthByUserName";
 import {Text, TextTheme} from "shared/ui/Text/Text";
 import {getPassword} from "../../model/selectors/getAuthByPassword/getAuthByPassword";
