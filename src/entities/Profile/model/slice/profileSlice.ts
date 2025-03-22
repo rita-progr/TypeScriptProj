@@ -24,9 +24,9 @@ export const profileSlice = createSlice({
                 state.data = action.payload
                 state.error = ''
             })
-            .addCase(fetchProfileData.rejected, (state, action) => {
+            .addCase(fetchProfileData.rejected, (state, action:PayloadAction<string | undefined>) => {
                 state.isLoading = false
-                state.error = action.payload;
+                state.error = action.payload || '';
             })
     }
 })

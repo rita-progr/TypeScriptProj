@@ -33,7 +33,7 @@ export const CustomButton= memo(function CustomButton(props:CustomButtonProps){
     const {
         className,
         children,
-        size,
+        size = ButtonSize.MEDIUM,
         color = ColorButton.BASIC,
         theme = ThemeButton.CLEAR,
         disabled,

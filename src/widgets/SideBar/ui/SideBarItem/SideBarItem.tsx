@@ -6,7 +6,7 @@ import {memo} from "react";
 
 
 interface SideBarItemProps{
-    item?:ItemsListInterface;
+    item:ItemsListInterface;
     collapsed?:boolean;
 }
 
@@ -15,7 +15,7 @@ export const SideBarItem = memo(function SideBarItem (props:SideBarItemProps) {
     return (
         <div className={classNames('',{[cls.collapsed]:collapsed})}>
             <CustomLink
-                to={item.path}
+                to={item?.path}
                 className={classNames(cls.allLinks)}>
                 <item.icon className={cls[item.className]}/>
                 <span className={cls.link}>{item.title}</span>
