@@ -5,11 +5,15 @@ import {AnyAction, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/too
 import {CombinedState} from "@reduxjs/toolkit/query";
 import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
 import {AxiosInstance} from "axios";
+import {ProfileSchema} from "entities/Profile";
+
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+
     login?: AuthByUserNameSchema
+    profile?: ProfileSchema
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;

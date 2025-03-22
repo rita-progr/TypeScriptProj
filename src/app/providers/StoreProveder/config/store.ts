@@ -7,9 +7,10 @@ import {$api} from "shared/api/api";
 import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
 
 
-export const createReduxStore = (initialState?:StateSchema, navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>) => {
+export const createReduxStore = (initialState?:StateSchema, asyncReducers?: ReducersMapObject<StateSchema>, navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>) => {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: counterReducer,
         user: userReducer
     }

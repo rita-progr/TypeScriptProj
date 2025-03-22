@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es2017",
+    "strict": true,
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
