@@ -21,7 +21,7 @@
 
 .m{
   font-size: var(--font-size-m);
-  padding: var(--padding-m);
+  padding: 0 0  var(--padding-m) 0;
 }
 
 .s{
@@ -38,6 +38,13 @@
 
 .outline{
   border: 1px solid var(--primary-color);
+  background: none;
+  padding: 5px 10px;
+}
+
+.outline_red{
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
   background: none;
   padding: 5px 10px;
 }
