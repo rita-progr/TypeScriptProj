@@ -21,6 +21,7 @@ export function createReducerManager(initialReducers:ReducersMapObject<StateSche
                 keysToRemove = []
             }
 
+            //@ts-ignore
             return combinedReducer(state, action)
         },
 
