@@ -1,18 +1,40 @@
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
-import {StateSchema} from "./StateSchema";
-import {counterReducer} from "entities/Counter/model/slice/counterSlice";
+import {StateSchema, ThunkExtraArgs} from "./StateSchema";
 import {userReducer} from "entities/User";
+import {counterReducer} from "entities/Counter";
+import {createReducerManager} from "./reduxManager";
+import {$api} from "shared/api/api";
+import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
 
-export const createStore = (initialState?:StateSchema) => {
+
+export const createReduxStore = (initialState?:StateSchema, asyncReducers?: ReducersMapObject<StateSchema>, navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>) => {
+
+    const extraArg: ThunkExtraArgs = {
+        api: $api,
+        navigate
+    }
 
     const rootReducer: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: counterReducer,
         user: userReducer
     }
+    const reducerManager = createReducerManager(rootReducer);
 
-    return configureStore<StateSchema>({
-        reducer: rootReducer,
+    const store = configureStore({
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState:initialState
+        preloadedState:initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: extraArg
+            }
+        })
     })
+    //@ts-expect-error: This is a temporary workaround for a known issue
+    store.reducerManager = reducerManager;
+    return store;
 }
+
+export type AppStore = ReturnType<typeof createReduxStore>
+export type AppDispatch = AppStore['dispatch']

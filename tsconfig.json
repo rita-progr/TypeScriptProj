@@ -6,6 +6,7 @@
     "lib": ["es2017", "dom"],
     "module": "ESNext",
     "target": "es2017",
+    "strict": true,
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",

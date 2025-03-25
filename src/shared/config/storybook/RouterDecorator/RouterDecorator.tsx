@@ -1,7 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter} from "react-router-dom";
+import {StoreProvider} from "app/providers/StoreProveder";
 
 export const RouterDecorator = (Story:  React.ComponentType) => (
-    <BrowserRouter>
-        <Story />
-    </BrowserRouter>
+    <MemoryRouter>
+        <StoreProvider>
+            <Story />
+        </StoreProvider>
+    </MemoryRouter>
 );

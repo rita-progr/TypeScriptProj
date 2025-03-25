@@ -1,0 +1,24 @@
+.ProfileCard{
+  padding: var(--padding-l);
+  border: 1px solid var(--primary-color);
+}
+
+.input{
+  margin-top:0.2rem;
+}
+
+.loading,
+.error{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width:40rem;
+  height:10rem;
+}
+
+.avatar{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}

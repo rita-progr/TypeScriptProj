@@ -1,7 +1,7 @@
 import {Link, LinkProps} from "react-router-dom";
 import cls from './CustomLink.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {FC} from "react";
+import {FC, memo} from "react";
 
 export enum CustomLinkType {
     PRIMARY = 'primary',
@@ -14,7 +14,7 @@ interface CustomLinkProps extends LinkProps {
     short?: boolean;
 }
 
-export const CustomLink:FC<CustomLinkProps> = (props) => {
+export const CustomLink= memo( function CustomLink (props:CustomLinkProps)  {
     const {className ,
         children,
         to,
@@ -29,4 +29,4 @@ export const CustomLink:FC<CustomLinkProps> = (props) => {
             {children}
         </Link>
     )
-}
+})

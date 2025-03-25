@@ -1,10 +1,11 @@
 import cls from './CustomButton.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ButtonHTMLAttributes, FC} from "react";
+import {ButtonHTMLAttributes, FC, memo} from "react";
 
 export enum ThemeButton{
     CLEAR='clear',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background_theme',
     BACKGROUND_INVERTED = 'backgroundInverted_theme',
 }
@@ -25,24 +26,27 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?:ThemeButton
     size?:ButtonSize
     color?:ColorButton
+    disabled?:boolean
 }
 
-export const CustomButton:FC<CustomButtonProps> = (props) => {
+export const CustomButton= memo(function CustomButton(props:CustomButtonProps){
 
     const {
         className,
         children,
-        size,
+        size = ButtonSize.MEDIUM,
         color = ColorButton.BASIC,
         theme = ThemeButton.CLEAR,
+        disabled,
         ...otherProps
     } = props;
 
 
     return (
-        <button className={classNames(cls.CustomButton , {} ,[className, cls[size], cls[theme], cls[color]  ])}
+        <button className={classNames(cls.CustomButton , {[cls.disabled]:disabled } ,[className, cls[size], cls[theme], cls[color]  ])}
+                disabled={disabled}
                 {...otherProps}>
             {children}
         </button>
     )
-}
+})
