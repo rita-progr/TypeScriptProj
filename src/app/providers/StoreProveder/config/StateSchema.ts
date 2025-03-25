@@ -28,6 +28,7 @@ export type StateSchemaKeys = keyof StateSchema;
 export interface ReduxWithStoreManager extends  EnhancedStore<StateSchema>{
     reducerManager:reduxManagerInterface;
 }
+
 export interface ThunkExtraArgs{
     api:AxiosInstance;
     navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>;

@@ -14,6 +14,8 @@ import {DynemicModuleLoader} from "shared/lib/components/DynemicModuleLoader/Dyn
 import {profileActions, profileReducer} from "entities/Profile/model/slice/profileSlice";
 import {useSelector} from "react-redux";
 import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
+import {Currency} from "entities/Currency";
+import {Country} from "entities/Country";
 
 const reducers = {
     profile: profileReducer,
@@ -52,6 +54,17 @@ interface ProfilePageProps{
          dispatch(profileActions.updateProfile({city:value}));
      },[dispatch])
 
+     const onChangeAvatar = useCallback((value:string)=>{
+         dispatch(profileActions.updateProfile({avatar:value}));
+     },[dispatch])
+
+     const onChangeCurrency = useCallback((value:Currency)=>{
+         dispatch(profileActions.updateProfile({currency:value}));
+     },[dispatch])
+
+     const onChangeCountry = useCallback((value:Country)=>{
+         dispatch(profileActions.updateProfile({country: value}));
+     },[dispatch])
 
      return (
         <DynemicModuleLoader reducers={reducers}>
@@ -64,6 +77,9 @@ interface ProfilePageProps{
                              onChangeFirstname={onChangeFirstname}
                              onChangeAge={onChangeAge}
                              onChangeCity={onChangeCity}
+                             onChangeAvatar={onChangeAvatar}
+                             onChangeCurrency={onChangeCurrency}
+                             onChangeCountry={onChangeCountry}
                              readOnly={readOnly}/>
             </div>
        </DynemicModuleLoader>
