@@ -33,8 +33,8 @@ export interface ThunkExtraArgs{
     api:AxiosInstance;
     navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>;
 }
-export interface ThunkConfig{
+export interface ThunkConfig<T>{
     extra: ThunkExtraArgs;
     state: StateSchema;
-    rejectValue: string;
+    rejectValue: T;
 }

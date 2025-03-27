@@ -8,8 +8,11 @@ const initialState : ProfileSchema = {
     data: undefined,
     isLoading:false,
     form: undefined,
-    error:''
+    error:'',
+    validateErrors: []
 }
+
+
 
 export const profileSlice = createSlice({
     name: 'profile',
@@ -21,6 +24,7 @@ export const profileSlice = createSlice({
 
         cancelEdit:(state) => {
             state.readonly = true;
+            state.validateErrors = undefined;
             state.form = state.data;
         },
 
@@ -59,7 +63,7 @@ export const profileSlice = createSlice({
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false
-                state.error = action.payload || ' ';
+                state.validateErrors = action.payload || [];
             })
     }
 })

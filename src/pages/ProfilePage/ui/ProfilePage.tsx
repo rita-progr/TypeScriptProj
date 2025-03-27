@@ -2,6 +2,7 @@ import cls from './ProfilePage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useCallback, useEffect} from "react";
+import {Text, TextTheme} from 'shared/ui/Text/Text'
 import {
     fetchProfileData,
     getProfileError,
@@ -16,6 +17,9 @@ import {useSelector} from "react-redux";
 import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
+import {
+    getProfileValidateError
+} from "entities/Profile/model/selectors/getProfileValidateError/getProfileValidateError";
 
 const reducers = {
     profile: profileReducer,
@@ -33,6 +37,7 @@ interface ProfilePageProps{
      const error = useSelector(getProfileError);
      const isLoading = useSelector(getProfileLoading) || false;
      const readOnly = useSelector(getReadOnly) || false;
+     const validateErrors = useSelector(getProfileValidateError);
 
     useEffect(()=>{
         dispatch(fetchProfileData());
@@ -70,6 +75,11 @@ interface ProfilePageProps{
         <DynemicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ProfilePage, {},[className])}>
                 <ProfilePageHeader/>
+                {validateErrors &&
+                    (validateErrors.map((error)=>(
+                        <Text text={error} theme={TextTheme.ERROR} key = {error}/>
+                    )))
+                }
                 <ProfileCard isLoading={isLoading}
                              error={error}
                              data={formData}
