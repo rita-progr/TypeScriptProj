@@ -41,6 +41,7 @@ const config: Config = {
   },
   globals: {
     __IS_DEV__: true,
+    __PROJECT__:'jest'
   },
   // transformIgnorePatterns: [
   //   "/node_modules/",

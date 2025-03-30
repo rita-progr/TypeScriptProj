@@ -22,7 +22,8 @@ export default (env:BuildEnv)=>{
         mode,
         paths:paths,
         port: PORT,
-        isDev
+        isDev,
+        project: 'frontend'
     })
 
     return config

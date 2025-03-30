@@ -39,7 +39,8 @@ export default ({config}:{config:webpack.Configuration})=>{
 
     config.plugins.push(
         new webpack.DefinePlugin({
-            __IS_DEV__: JSON.stringify(true), // Установите значение true для режима разработки
+            __IS_DEV__: JSON.stringify(true), // Установите значение true для режима разработки,
+            __PROJECT__: JSON.stringify('storybook'),
         })
     );
 

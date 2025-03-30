@@ -5,7 +5,7 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 
 
-export function BuildPlugins({paths, isDev}:BuildOptions):webpack.WebpackPluginInstance[] {
+export function BuildPlugins({paths, isDev, project}:BuildOptions):webpack.WebpackPluginInstance[] {
 
     const plugins = [
         new HTMLWebpackPlugin({
@@ -18,6 +18,7 @@ export function BuildPlugins({paths, isDev}:BuildOptions):webpack.WebpackPluginI
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __PROJECT__:JSON.stringify(project)
         }),
     ]
     if(isDev){
