@@ -3,41 +3,33 @@ import path from "path";
 
 const config: Config = {
   clearMocks: true,
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: [
-    "/node_modules/"
-  ],
-  moduleDirectories: [
-    "node_modules",
+    '\\\\node_modules\\\\',
   ],
   moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
   ],
-  rootDir: "../../",
+  moduleDirectories: [
+    'node_modules',
+  ],
+  modulePaths: [
+    '<rootDir>src',
+  ],
   testMatch: [
-    `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`
+    // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
-  modulePaths: ["src"],
-  setupFilesAfterEnv: [
-    '<rootDir>config/jest/setUpTests.ts',
-    // '<rootDir>config/jest/jest.i18n.mock.ts',
-  ],
+  rootDir: '../../',
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname,'jestEmptySvg.tsx'),
-    '^entities/(.*)$': '<rootDir>/src/entities/$1',
-    '^app/(.*)$': '<rootDir>/src/app/$1',
-    '^shared/(.*)$': '<rootDir>/src/shared/$1',
-    '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
-    '^pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^features/(.*)$': '<rootDir>/src/features/$1',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
   globals: {
     __IS_DEV__: true,

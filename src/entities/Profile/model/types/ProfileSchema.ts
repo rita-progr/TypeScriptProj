@@ -21,10 +21,10 @@ export interface Profile {
 }
 
 export interface ProfileSchema {
-    data: Profile| undefined;
-    form: Profile| undefined;
-    isLoading: boolean;
-    error: string;
+    data?: Profile| undefined;
+    form?: Profile| undefined;
+    isLoading?: boolean;
+    error?: string;
     readonly?: boolean;
     validateErrors?: validateProfileErrors[];
 }
