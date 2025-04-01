@@ -9,6 +9,7 @@ export interface ItemsListInterface{
     icon:React.FC<React.SVGProps<SVGSVGElement>>;
     title:string;
     className:string;
+    authOnly?:boolean;
 }
 
 export const ItemsList:ItemsListInterface[] = [
@@ -28,6 +29,7 @@ export const ItemsList:ItemsListInterface[] = [
         path:RoutePath.profile,
         icon: ProfileIcon,
         title:'Профиль',
-        className:'iconAbout'
+        className:'iconAbout',
+        authOnly:true
     }
 ]

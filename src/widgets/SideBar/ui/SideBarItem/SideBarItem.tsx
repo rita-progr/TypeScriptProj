@@ -3,6 +3,8 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {CustomLink} from "shared/ui/CustomLink/CustomLink";
 import {ItemsListInterface} from "../model/items";
 import {memo} from "react";
+import {getUserAuthData} from "entities/User";
+import {useSelector} from "react-redux";
 
 
 interface SideBarItemProps{
@@ -12,6 +14,12 @@ interface SideBarItemProps{
 
 export const SideBarItem = memo(function SideBarItem (props:SideBarItemProps) {
     const {item, collapsed} = props;
+    const auth = useSelector(getUserAuthData)
+
+    if(!auth && item.authOnly){
+        return null
+    }
+
     return (
         <div className={classNames('',{[cls.collapsed]:collapsed})}>
             <CustomLink

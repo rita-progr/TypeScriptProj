@@ -12,6 +12,10 @@ export enum RouteType {
 
 }
 
+export type AppRouteProps = RouteProps & {
+    authOnly?:boolean
+}
+
 export const RoutePath: Record<RouteType,string>={
     [RouteType.MAIN]:"/",
     [RouteType.ABOUT]:"/about",
@@ -19,7 +23,7 @@ export const RoutePath: Record<RouteType,string>={
     [RouteType.NOT_FOUND]:"*",
 
 }
-export const RouteConfig:Record<RouteType, RouteProps> = {
+export const RouteConfig:Record<RouteType, AppRouteProps> = {
     [RouteType.MAIN]:{
         path:RoutePath.main,
         element:<MainAsync/>
@@ -30,7 +34,8 @@ export const RouteConfig:Record<RouteType, RouteProps> = {
     },
     [RouteType.PROFILE]:{
         path:RoutePath.profile,
-        element:<ProfilePage/>
+        element:<ProfilePage/>,
+        authOnly: true
     },
     [RouteType.NOT_FOUND]:{
         path:RoutePath.notFound,
