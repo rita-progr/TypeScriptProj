@@ -2,6 +2,7 @@ import {RoutePath} from "shared/config/routeConfig/routeConfig";
 import MainIcon from "shared/assets/mainPage.svg";
 import AboutIcon from "shared/assets/aboutPage.svg";
 import ProfileIcon from "shared/assets/ProfileIcon.svg";
+import ArticleIcon from "shared/assets/article.svg"
 
 
 export interface ItemsListInterface{
@@ -31,5 +32,13 @@ export const ItemsList:ItemsListInterface[] = [
         title:'Профиль',
         className:'iconAbout',
         authOnly:true
-    }
+    },
+    {
+        path:RoutePath.articles,
+        icon: ArticleIcon,
+        title:'Статьи',
+        className:'iconAbout',
+        authOnly:true
+    },
+
 ]

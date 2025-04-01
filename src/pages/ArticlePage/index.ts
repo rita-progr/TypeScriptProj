@@ -1,0 +1,1 @@
+export {ArticlePageAsync as ArticlePage} from "pages/ArticlePage/ui/ArticlePage.async";
