@@ -37,7 +37,7 @@ export const ItemsList:ItemsListInterface[] = [
         path:RoutePath.articles,
         icon: ArticleIcon,
         title:'Статьи',
-        className:'iconAbout',
+        className:'icon',
         authOnly:true
     },
 

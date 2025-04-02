@@ -1,3 +1,5 @@
 .ArticleDetailsPage {
-
+  height: calc(100vh - var(--navbar-height));
+  width: 100%;
+  overflow-y: auto;
 }

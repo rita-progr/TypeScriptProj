@@ -6,6 +6,7 @@ import {CombinedState} from "@reduxjs/toolkit/query";
 import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
 import {AxiosInstance} from "axios";
 import {ProfileSchema} from "entities/Profile";
+import {ArticleSchema} from "entities/Article";
 
 
 export interface StateSchema {
@@ -14,6 +15,7 @@ export interface StateSchema {
 
     login?: AuthByUserNameSchema
     profile?: ProfileSchema
+    articles?: ArticleSchema
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;

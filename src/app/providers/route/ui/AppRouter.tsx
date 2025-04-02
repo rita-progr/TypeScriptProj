@@ -9,9 +9,7 @@ export const AppRouter = () => {
     const renderWithWrapper = useCallback((route:AppRouteProps)=>{
         const element = (
             <Suspense fallback={<PageLoader/>}>
-            <div>
                 {route.element}
-            </div>
         </Suspense>)
 
         return (
@@ -24,7 +22,7 @@ export const AppRouter = () => {
     },[])
 
     return (
-            <Routes>
+            <Routes >
                 {Object.values(RouteConfig).map(renderWithWrapper)}
             </Routes>
     );
