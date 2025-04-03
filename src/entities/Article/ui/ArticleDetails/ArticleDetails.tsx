@@ -1,6 +1,6 @@
 import cls from './ArticleDetails.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchArticleById} from "entities/Article/model/services/fetchArticleById";
 import {DynemicModuleLoader} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
@@ -9,6 +9,14 @@ import {getArticleData, getArticleError, getArticleIsLoading} from "../../model/
 import {useSelector} from "react-redux";
 import {Text, TextAlign, TextTheme} from "shared/ui/Text/Text";
 import {Skeleton} from "shared/ui/Skeleton/Skeleton";
+import {Avatar} from "shared/ui/Avatar/Avatar";
+import {Icon} from "shared/ui/Icon/Icon";
+import EyeIcon from 'shared/assets/eyeIcon.svg';
+import CalendarIcon from 'shared/assets/calendarIcon.svg';
+import {ArticleBlocks, ArticleBlockType} from "../../model/types/ArticleSchema";
+import {ArticleCodeBlockComponent} from "entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
+import {ArticleTextBlockComponent} from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
+import {ArticleImageBlockComponent} from "entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -20,8 +28,7 @@ const reducers = {
 }
 
 export const ArticleDetails = ({className, id}: ArticleDetailsProps) => {
-    // const isLoading = useSelector(getArticleIsLoading)
-    const isLoading = true;
+    const isLoading = useSelector(getArticleIsLoading)
     const error = useSelector(getArticleError)
     const data = useSelector(getArticleData)
     const dispatch = useAppDispatch();
@@ -31,6 +38,19 @@ export const ArticleDetails = ({className, id}: ArticleDetailsProps) => {
     }, [dispatch, id]);
 
     let content;
+
+    const renderBlocks = useCallback((block: ArticleBlocks)=>{
+        switch (block.type) {
+            case ArticleBlockType.CODE:
+                return <ArticleCodeBlockComponent/>
+            case ArticleBlockType.TEXT:
+                return <ArticleTextBlockComponent block={block}/>
+            case ArticleBlockType.IMAGE:
+                return <ArticleImageBlockComponent/>
+            default:
+                return null;
+        }
+    },[])
 
     if(isLoading){
         content = (
@@ -48,7 +68,22 @@ export const ArticleDetails = ({className, id}: ArticleDetailsProps) => {
         )
     }else{
         content = (
-            <div>details</div>
+            <>
+                <div className={cls.avatarWrapper}>
+                    <Avatar img={data?.img} height = {150} width={150} />
+                </div>
+                <Text title={data?.title}/>
+                <Text title={data?.subtitle}/>
+                <div className = {cls.info}>
+                    <Icon Svg={EyeIcon} className={cls.icon}/>
+                    <Text text = {String(data?.views)}/>
+                </div>
+                <div className = {cls.info}>
+                    <Icon Svg={CalendarIcon} className={cls.icon}/>
+                    <Text text = {data?.createdAt}/>
+                </div>
+                {data?.blocks.map(renderBlocks)}
+            </>
         )
     }
 

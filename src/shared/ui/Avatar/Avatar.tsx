@@ -7,16 +7,18 @@ interface AvatarProps{
     alt?: string;
     img?: string;
     size?: number;
+    width?: number| string;
+    height?: number | string;
 }
 
 export const Avatar = (props:AvatarProps) => {
 
-    const {alt, img, size, className} = props;
+    const {alt, img, width, height, className} = props;
 
     const styles = useMemo<CSSProperties>(()=>({
-        width: size || 100,
-        height: size || 100,
-    }),[size])
+        width: width || 100,
+        height: height || 100,
+    }),[height, width]);
 
     return (
         <img

@@ -1,5 +1,6 @@
 .ArticleDetails {
   height: calc(100vh - var(--navbar-height));
+  margin:1rem;
 }
 
 .avatar{
@@ -9,3 +10,15 @@
 .title{
   margin-top:1.5rem;
 }
+
+.info{
+  display:flex;
+  gap: 0.5rem;
+}
+
+.avatarWrapper{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+

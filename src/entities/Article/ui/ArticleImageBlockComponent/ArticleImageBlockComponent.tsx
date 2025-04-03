@@ -8,7 +8,7 @@ interface ArticleImageBlockComponentProps {
 export const ArticleImageBlockComponent = ({className}: ArticleImageBlockComponentProps) => {
     return (
         <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-
+            ArticleImageBlockComponent
         </div>
     )
 }

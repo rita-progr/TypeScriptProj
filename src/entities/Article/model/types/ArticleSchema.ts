@@ -4,7 +4,7 @@ export interface ArticleSchema {
     data: Article | undefined;
 }
 
-enum ArticleBlockType{
+export enum ArticleBlockType{
     TEXT = 'TEXT',
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -47,5 +47,5 @@ export interface Article {
     views: number;
     createdAt: string;
     type: ArticleType[];
-    blocks: ArticleBlocks
+    blocks: ArticleBlocks[]
 }
