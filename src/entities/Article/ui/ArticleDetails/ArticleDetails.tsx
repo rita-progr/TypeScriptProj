@@ -70,22 +70,22 @@ export const ArticleDetails = ({className, id}: ArticleDetailsProps) => {
         )
     }else{
         content = (
-            <>
-                <div className={cls.avatarWrapper}>
-                    <Avatar img={data?.img} height = {150} width={150} />
-                </div>
-                <Text title={data?.title}/>
-                <Text title={data?.subtitle}/>
-                <div className = {cls.info}>
-                    <Icon Svg={EyeIcon} className={cls.icon}/>
-                    <Text text = {String(data?.views)}/>
-                </div>
-                <div className = {cls.info}>
-                    <Icon Svg={CalendarIcon} className={cls.icon}/>
-                    <Text text = {data?.createdAt}/>
-                </div>
-                {data?.blocks.map(renderBlocks)}
-            </>
+                <>
+                    <div className={cls.avatarWrapper}>
+                        <Avatar img={data?.img} height={150} width={150}/>
+                    </div>
+                    <Text title={data?.title}/>
+                    <Text title={data?.subtitle}/>
+                    <div className={cls.info}>
+                        <Icon Svg={EyeIcon} className={cls.icon}/>
+                        <Text text={String(data?.views)}/>
+                    </div>
+                    <div className={cls.info}>
+                        <Icon Svg={CalendarIcon} className={cls.icon}/>
+                        <Text text={data?.createdAt}/>
+                    </div>
+                    {data?.blocks.map(renderBlocks)}
+                </>
         )
     }
 
