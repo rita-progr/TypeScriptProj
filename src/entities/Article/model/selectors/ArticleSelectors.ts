@@ -4,4 +4,4 @@ export const getArticleIsLoading = (state: StateSchema) => state?.articles?.isLo
 
 export const getArticleError = (state: StateSchema) => state?.articles?.error ;
 
-export const getArticleData = (state: StateSchema) => state?.articles?.data ;
+export const getArticleData = (state: StateSchema) => state?.articles?.data || '';

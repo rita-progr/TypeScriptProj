@@ -1,7 +1,7 @@
 export interface ArticleSchema {
-    isLoading: boolean;
-    error: string|null;
-    data: Article | undefined;
+    isLoading?: boolean;
+    error?: string|null;
+    data?: Article | undefined;
 }
 
 export enum ArticleBlockType{
