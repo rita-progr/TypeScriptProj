@@ -1,0 +1,14 @@
+.Code {
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  overflow: auto;
+  position: relative;
+  background: var(--code-bg);
+}
+
+.icon{
+  position: absolute;
+  right: 10px;
+  top:10px;
+  stroke: var(--primary-color)
+}
