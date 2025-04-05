@@ -7,6 +7,7 @@ import {N as NavigateOptions, T as To} from "react-router/dist/development/route
 import {AxiosInstance} from "axios";
 import {ProfileSchema} from "entities/Profile";
 import {ArticleSchema} from "entities/Article";
+import {CommentSchema} from "pages/ArticleDetailsPage";
 
 
 export interface StateSchema {
@@ -16,6 +17,7 @@ export interface StateSchema {
     login?: AuthByUserNameSchema
     profile?: ProfileSchema
     articles?: ArticleSchema
+    articleDetailsComments?: CommentSchema
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;
