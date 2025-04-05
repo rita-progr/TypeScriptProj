@@ -13,7 +13,11 @@ import {
 } from "../model/selectors/getArticlesDetailsState";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchArticleDetailsComments} from "pages/ArticleDetailsPage/model/services/fetchArticleDetailsComments";
+import {fetchArticleDetailsComments} from "../model/services/fetchArticleDetailsComments";
+import {AddNewCommentForm} from "features/addNewComment";
+import {useCallback} from "react";
+import {addNewCommentArticle} from "pages/ArticleDetailsPage/model/services/addNewCommentArticle";
+
 
 
 interface ArticleDetailsPageProps {
@@ -29,11 +33,17 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const {id} = useParams<{id: string}>();
     const isLoading = useSelector(getArticlesDetailsLoading);
     const dispatch = useAppDispatch();
-    const comments = useSelector(getArticleComments.selectAll)
+    const comments = useSelector(getArticleComments.selectAll);
+
 
    useInitEffect(() => {
        dispatch(fetchArticleDetailsComments(id));
    })
+
+    const sendComment = useCallback((text: string)=>{
+        dispatch(addNewCommentArticle(text))
+    },[dispatch])
+
 
     if(!id){
         return (
@@ -42,10 +52,12 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
         )
     }
 
+
     return (
         <DynemicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id = {id}/>
+                <AddNewCommentForm sendNewComment={sendComment}/>
                 <div className={cls.comments}>
                     <Text title={t('Комментарии')}/>
                     <CommentList isLoading={isLoading} comments={comments}/>

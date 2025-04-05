@@ -8,6 +8,7 @@ import {AxiosInstance} from "axios";
 import {ProfileSchema} from "entities/Profile";
 import {ArticleSchema} from "entities/Article";
 import {CommentSchema} from "pages/ArticleDetailsPage";
+import {addNewCommentSchema} from "features/addNewComment";
 
 
 export interface StateSchema {
@@ -18,6 +19,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     articles?: ArticleSchema
     articleDetailsComments?: CommentSchema
+    newComment?: addNewCommentSchema
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;

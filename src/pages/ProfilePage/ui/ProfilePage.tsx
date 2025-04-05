@@ -20,6 +20,8 @@ import {Country} from "entities/Country";
 import {
     getProfileValidateError
 } from "entities/Profile/model/selectors/getProfileValidateError/getProfileValidateError";
+import {useParams} from "react-router-dom";
+import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 
 const reducers = {
     profile: profileReducer,
@@ -38,12 +40,13 @@ interface ProfilePageProps{
      const isLoading = useSelector(getProfileLoading) || false;
      const readOnly = useSelector(getReadOnly) || false;
      const validateErrors = useSelector(getProfileValidateError);
+     const {id} = useParams<{id:string}>();
 
-    useEffect(()=>{
-        if(__PROJECT__ !== 'storybook'){
-            dispatch(fetchProfileData());
-        }
-    },[dispatch]);
+     useInitEffect(()=>{
+         if (id != null) {
+             dispatch(fetchProfileData(id));
+         }
+     })
 
     const onChangeFirstname = useCallback((value:string)=>{
         dispatch(profileActions.updateProfile({first:value}));

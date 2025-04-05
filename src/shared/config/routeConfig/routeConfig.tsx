@@ -22,7 +22,7 @@ export type AppRouteProps = RouteProps & {
 export const RoutePath: Record<RouteType,string>={
     [RouteType.MAIN]:"/",
     [RouteType.ABOUT]:"/about",
-    [RouteType.PROFILE]:"/profile",
+    [RouteType.PROFILE]:"/profile/", //+id
     [RouteType.ARTICLES]:"/articles",
     [RouteType.ARTICLE_DETAILS]:"/articles/", //+id
     [RouteType.NOT_FOUND]:"*",
@@ -39,7 +39,7 @@ export const RouteConfig:Record<RouteType, AppRouteProps> = {
         element:<AboutAsync/>
     },
     [RouteType.PROFILE]:{
-        path:RoutePath.profile,
+        path:`${RoutePath.profile}:id`,
         element:<ProfilePage/>,
         authOnly: true
     },

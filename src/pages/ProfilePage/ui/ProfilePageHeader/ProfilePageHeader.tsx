@@ -4,18 +4,21 @@ import {Text} from "shared/ui/Text/Text";
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {getReadOnly} from "entities/Profile";
+import {getProfileData, getReadOnly} from "entities/Profile";
 import {useCallback} from "react";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {profileActions} from "entities/Profile/model/slice/profileSlice";
 import {updateProfileData} from "entities/Profile/model/services/updateProfileData/updateProfileData";
+import {getUserAuthData} from "entities/User";
 
 interface ProfilePageHeaderProps{
     className?: string;
 }
 
 export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) => {
-
+    const profileData = useSelector(getProfileData);
+    const authData = useSelector(getUserAuthData);
+    const edit = profileData?.id  === authData?.id
     const readOnly = useSelector(getReadOnly);
     const dispatch = useAppDispatch();
     const {t} = useTranslation('profile');
@@ -37,21 +40,24 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
                 <Text title={t('Профиль')}/>
-            {readOnly ? (
-                <CustomButton theme={ThemeButton.OUTLINE} onClick={onEdit}>
-                    {t('Редактировать')}
-                </CustomButton>
-            ):(
+            {edit && (
                 <>
-                    <CustomButton theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit} className={cls.cancel}>
-                        {t('Отменить')}
-                    </CustomButton>
-                    <CustomButton theme={ThemeButton.OUTLINE} onClick={onSave}>
-                        {t('Сохранить')}
-                    </CustomButton>
+                    {readOnly ? (
+                        <CustomButton theme={ThemeButton.OUTLINE} onClick={onEdit}>
+                            {t('Редактировать')}
+                        </CustomButton>
+                    ):(
+                        <>
+                            <CustomButton theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit} className={cls.cancel}>
+                                {t('Отменить')}
+                            </CustomButton>
+                            <CustomButton theme={ThemeButton.OUTLINE} onClick={onSave}>
+                                {t('Сохранить')}
+                            </CustomButton>
+                        </>
+                    )}
                 </>
             )}
-
         </div>
     )
 }
