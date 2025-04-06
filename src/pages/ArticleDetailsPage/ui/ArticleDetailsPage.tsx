@@ -1,23 +1,22 @@
 import cls from './ArticleDetailsPage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {ArticleDetails} from "entities/Article";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {CommentList} from "entities/Comment";
-import{Text} from 'shared/ui/Text/Text'
+import {Text} from 'shared/ui/Text/Text'
 import {useTranslation} from "react-i18next";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
 import {ArticleDetailsPageCommentReducer, getArticleComments} from "../model/slice/ArticleDetailsPageCommentSlice";
 import {useSelector} from "react-redux";
-import {
-    getArticlesDetailsLoading
-} from "../model/selectors/getArticlesDetailsState";
+import {getArticlesDetailsLoading} from "../model/selectors/getArticlesDetailsState";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchArticleDetailsComments} from "../model/services/fetchArticleDetailsComments";
 import {AddNewCommentForm} from "features/addNewComment";
 import {useCallback} from "react";
 import {addNewCommentArticle} from "pages/ArticleDetailsPage/model/services/addNewCommentArticle";
-
+import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {RoutePath} from "shared/config/routeConfig/routeConfig";
 
 
 interface ArticleDetailsPageProps {
@@ -34,7 +33,11 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const isLoading = useSelector(getArticlesDetailsLoading);
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
+    const navigate = useNavigate();
 
+    const backToList = useCallback(()=>{
+        navigate(RoutePath.articles)
+    },[navigate])
 
    useInitEffect(() => {
        dispatch(fetchArticleDetailsComments(id));
@@ -56,6 +59,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     return (
         <DynemicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <CustomButton onClick={backToList} theme={ThemeButton.OUTLINE}>{t('Назад')}</CustomButton>
                 <ArticleDetails id = {id}/>
                 <AddNewCommentForm sendNewComment={sendComment}/>
                 <div className={cls.comments}>

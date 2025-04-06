@@ -1,0 +1,110 @@
+.BIG{
+  .ImgWrapper{
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+    margin: 15px 0;
+  }
+
+  .userInfo{
+    display: flex;
+    gap:0.5rem;
+    align-items: center;
+  }
+
+  .views{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .types p{
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .textBlock{
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+}
+
+.SMALL{
+  .date{
+    display: none;
+  }
+
+  .card {
+    transition: 0.2s;
+    max-width: 300px;
+
+    &:hover {
+      transform: scale(1.05);
+
+      .date{
+        display: block;
+      }
+    }
+}
+
+  .ImgWrapper{
+    max-width: 200px;
+    position: relative;
+  }
+
+  .ImgWrapper p {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .ImgWrapper img{
+    width: 100%;
+  }
+
+  .TypesWrapper{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .views{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+
+
+  .types p{
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .title{
+    margin-top: 10px;
+  }
+
+  .title p {
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  
+}

@@ -1,7 +1,14 @@
+import {IUser} from "entities/User";
+
 export interface ArticleSchema {
     isLoading?: boolean;
     error?: string|null;
     data?: Article | undefined;
+}
+
+export enum ArticleViews{
+    BIG = 'BIG',
+    SMALL = 'SMALL',
 }
 
 export enum ArticleBlockType{
@@ -43,6 +50,7 @@ export interface Article {
     id:string;
     title: string;
     subtitle: string;
+    user?: IUser;
     img: string;
     views: number;
     createdAt: string;
