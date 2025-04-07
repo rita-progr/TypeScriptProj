@@ -9,6 +9,8 @@ import {ProfileSchema} from "entities/Profile";
 import {ArticleSchema} from "entities/Article";
 import {CommentSchema} from "pages/ArticleDetailsPage";
 import {addNewCommentSchema} from "features/addNewComment";
+import {ArticlesSchema} from "pages/ArticlePage";
+
 
 
 export interface StateSchema {
@@ -20,6 +22,7 @@ export interface StateSchema {
     articles?: ArticleSchema
     articleDetailsComments?: CommentSchema
     newComment?: addNewCommentSchema
+    articlesPage?:ArticlesSchema
 }
 export interface reduxManagerInterface{
     getReducerMap: () => ReducersMapObject<StateSchema>;
