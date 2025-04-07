@@ -9,7 +9,7 @@ interface useInfinityScrollProps{
 export const useInfinityScroll = ({callback, triggerRef, wrapperRef}:useInfinityScrollProps) => {
 
     useEffect(() => {
-        let observer: null| IntersectionObserver;
+        let observer: IntersectionObserver;
         if(callback) {
             const options = {
                 root: wrapperRef.current,
@@ -25,12 +25,12 @@ export const useInfinityScroll = ({callback, triggerRef, wrapperRef}:useInfinity
 
             observer.observe(triggerRef.current)
 
-            return () => {
-                if (observer) {
-                    // eslint-disable-next-line react-hooks/exhaustive-deps
-                    observer.unobserve(triggerRef.current)
-                }
-            }
+            // return () => {
+            //     if (observer) {
+            //         // eslint-disable-next-line react-hooks/exhaustive-deps
+            //         observer?.unobserve(triggerRef.current)
+            //     }
+            // }
         }
     },[callback, triggerRef, wrapperRef])
 
