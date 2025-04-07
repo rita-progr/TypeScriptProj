@@ -11,7 +11,7 @@ import {CustomButton} from "shared/ui/CustomButton/CustomButton";
 interface ArticleViewSwitcherProps {
     className?: string;
     views?: ArticleViews;
-    onViewsChange: (view: ArticleViews) => void;
+    onViewsChange?: (view: ArticleViews) => void;
 }
 
 const viewTypes = [

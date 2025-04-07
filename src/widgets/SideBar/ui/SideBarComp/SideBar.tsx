@@ -22,7 +22,7 @@ export const SideBar = memo(function SideBar({className}:SideBarProps) {
     }
 
     return (
-        <div data-testid = "sidebar" className={classNames(cls.SideBar, {[cls.collapsed]:collapsed},[className])}>
+        <menu data-testid = "sidebar" className={classNames(cls.SideBar, {[cls.collapsed]:collapsed},[className])}>
             <div className={classNames(cls.links)}>
                 {ItemsList.map(item=>(
                     <SideBarItem item={item} key = {item.path} collapsed = {collapsed}/>
@@ -33,6 +33,6 @@ export const SideBar = memo(function SideBar({className}:SideBarProps) {
                 <ThemeSwitchers/>
                 <LanguageSwitcher short = {collapsed}/>
             </div>
-        </div>
+        </menu>
     )
 })

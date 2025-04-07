@@ -35,23 +35,23 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
 
     if(userData){
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <CustomButton onClick={onLogout} color={ColorButton.INVERTED}>
                     {t("Выйти")}
                 </CustomButton>
-            </div>
+            </header>
                 )
                 }
 
         return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             {isAutModalOpen &&
                 <UserModal onClose={onCloseModal} isOpen={isAutModalOpen}/>
             }
             <CustomButton onClick={onOpenModal} color={ColorButton.INVERTED}>
                 {t("Войти")}
             </CustomButton>
-        </div>
+        </header>
         )
 
         })

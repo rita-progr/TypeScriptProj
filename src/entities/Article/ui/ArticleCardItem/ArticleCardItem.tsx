@@ -38,7 +38,6 @@ export const ArticleCardItem = ({className, article, view}: ArticleCardItemProps
         <Text text={article.type.join(',  ')} className={cls.types}/>
     )
 
-    console.log(article)
 
     if (view == ArticleViews.BIG) {
         const textBlock = article.blocks.find((item) => item.type === ArticleBlockType.TEXT) as ArticleTEXTBlocks

@@ -13,9 +13,8 @@ interface ArticleCardListProps {
 
 export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL, isLoading}: ArticleCardListProps) => {
 
-    if(isLoading){
-        return (
-            <div className={classNames('', {}, [cls[view]])}>
+
+         const getLoading= (view: ArticleViews) => (
                 <div className={classNames(cls.ArticleCardList, {}, [className, cls[view]])}>
                     {
                         new Array(view === ArticleViews.SMALL ? 12 : 3)
@@ -25,9 +24,8 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
                             ))
                     }
                 </div>
-            </div>
         )
-    }
+
 
     const renderItem = (article: Article) => {
         return (
@@ -40,7 +38,9 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
             <div className={classNames(cls.ArticleCardList, {}, [className, cls[view]])}>
                 {articles.length > 0 ?
                     (articles.map((article: Article) => (renderItem(article)))) : null}
+                {isLoading && getLoading(view)}
             </div>
+
         </div>
 
     )
