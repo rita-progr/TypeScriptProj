@@ -26,10 +26,10 @@ export const useInfinityScroll = ({callback, triggerRef, wrapperRef}:useInfinity
             observer.observe(triggerRef.current)
 
             return () => {
-                if (observer) {
-                    // eslint-disable-next-line react-hooks/exhaustive-deps
-                    observer?.unobserve(triggerRef.current)
-                }
+                // if (observer) {
+                //     // eslint-disable-next-line react-hooks/exhaustive-deps
+                //     observer?.unobserve(triggerRef.current)
+                // }
             }
         }
     },[callback, triggerRef, wrapperRef])

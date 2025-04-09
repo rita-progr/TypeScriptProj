@@ -5,6 +5,7 @@ import {counterReducer} from "entities/Counter";
 import {createReducerManager} from "./reduxManager";
 import {$api} from "shared/api/api";
 import {N as NavigateOptions, T as To} from "react-router/dist/development/route-data-BmvbmBej";
+import {trottlingReducer} from "features/trottlingScroll";
 
 
 export const createReduxStore = (initialState?:StateSchema, asyncReducers?: ReducersMapObject<StateSchema>, navigate?:  (to: To, options?: NavigateOptions) => void | Promise<void>) => {
@@ -16,7 +17,8 @@ export const createReduxStore = (initialState?:StateSchema, asyncReducers?: Redu
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
+        trottling: trottlingReducer,
     }
     const reducerManager = createReducerManager(rootReducer);
 

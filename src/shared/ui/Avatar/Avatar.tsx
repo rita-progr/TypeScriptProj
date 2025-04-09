@@ -13,12 +13,12 @@ interface AvatarProps{
 
 export const Avatar = (props:AvatarProps) => {
 
-    const {alt, img, width, height, className} = props;
+    const {alt, img, width, height, className, size} = props;
 
     const styles = useMemo<CSSProperties>(()=>({
-        width: width || 100,
-        height: height || 100,
-    }),[height, width]);
+        width: width || size,
+        height: height || size,
+    }),[height, size, width]);
 
     return (
         <img

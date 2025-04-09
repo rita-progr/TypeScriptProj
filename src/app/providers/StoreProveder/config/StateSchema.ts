@@ -10,12 +10,14 @@ import {ArticleSchema} from "entities/Article";
 import {CommentSchema} from "pages/ArticleDetailsPage";
 import {addNewCommentSchema} from "features/addNewComment";
 import {ArticlesSchema} from "pages/ArticlePage";
+import {TrottlingSchema} from "features/trottlingScroll";
 
 
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    trottling: TrottlingSchema
 
     login?: AuthByUserNameSchema
     profile?: ProfileSchema
