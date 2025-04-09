@@ -14,7 +14,7 @@ export const useInfinityScroll = ({callback, triggerRef, wrapperRef}:useInfinity
             const options = {
                 root: wrapperRef.current,
                 rootMargin: '0px',
-                threshold: 1
+                threshold: 0.1
             }
 
              observer = new IntersectionObserver(([entry]) => {
