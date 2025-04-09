@@ -11,7 +11,6 @@ export const createReduxStore = (initialState?:StateSchema, asyncReducers?: Redu
 
     const extraArg: ThunkExtraArgs = {
         api: $api,
-        navigate
     }
 
     const rootReducer: ReducersMapObject<StateSchema> = {

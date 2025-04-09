@@ -12,7 +12,7 @@ type DeepPartial<T> = {
 interface StoreProviderProps {
     children?: ReactNode,
     initialState?: DeepPartial<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void | Promise<void>,
+    // navigate?: (to: To, options?: NavigateOptions) => void | Promise<void>,
     asuncReducers?: Partial<ReducersMapObject<StateSchema>>,
 }
 
@@ -23,10 +23,9 @@ export const StoreProvider = (props: StoreProviderProps) => {
         asuncReducers
     } = props;
 
-    // const navigate = useNavigate();
 
     const store = createReduxStore(initialState as StateSchema, asuncReducers as ReducersMapObject<StateSchema>);
-
+    console.log('RENDER')
     return (
         <Provider store={store}>
             {children}

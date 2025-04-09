@@ -26,8 +26,6 @@ export const RoutePath: Record<RouteType,string>={
     [RouteType.ARTICLES]:"/articles",
     [RouteType.ARTICLE_DETAILS]:"/articles/", //+id
     [RouteType.NOT_FOUND]:"*",
-
-
 }
 export const RouteConfig:Record<RouteType, AppRouteProps> = {
     [RouteType.MAIN]:{

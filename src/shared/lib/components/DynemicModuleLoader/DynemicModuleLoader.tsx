@@ -13,23 +13,30 @@ export type ReducersList = {
 interface DynemicModuleLoaderProps{
     children?: ReactNode;
     reducers?: ReducersList;
+    removeAfterUnmount?: boolean;
 }
 
 export const DynemicModuleLoader: FC<DynemicModuleLoaderProps> = (props) => {
-    const {children, reducers = {}} = props;
+    const {children, reducers = {} ,  removeAfterUnmount = true,} = props;
     const store = useStore() as ReduxWithStoreManager;
     const dispatch: AppDispatch = useDispatch();
     useEffect(() => {
+        const moutedReducers = store.reducerManager.getReducerMap()
         Object.entries(reducers).forEach(([name,reducer])=>{
-            store.reducerManager.add(name as StateSchemaKeys , reducer);
-            dispatch({type: `@INIT ${name} reducer`});
+            const mounted = moutedReducers[name as StateSchemaKeys];
+            if(!mounted){
+                store.reducerManager.add(name as StateSchemaKeys , reducer);
+                dispatch({type: `@INIT ${name} reducer`});
+            }
         })
 
         return ()=>{
-            Object.entries(reducers).forEach(([name])=>{
-                store.reducerManager.remove('login');
-                dispatch({type: `@DESTROY ${name} reducer`});
-            })
+            if(removeAfterUnmount) {
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove('login');
+                    dispatch({type: `@DESTROY ${name} reducer`});
+                })
+            }
 
         }
         //eslint-disable-next-line

@@ -22,9 +22,9 @@ export const loginByUsername = createAsyncThunk<IUser, LoginByUserNameProps, Thu
             dispatch(userActions.getAuthData(response.data));
 
 
-            if (extra.navigate) {
-                extra.navigate('/about');
-            }
+            // if (navigate) {
+            //     navigate('/about');
+            // }
 
             return response.data
 

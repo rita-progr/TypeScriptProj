@@ -2,19 +2,19 @@ import cls from './ArticlePage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {ArticleCardList, ArticleViews, ArticleViewSwitcher} from "entities/Article";
 import {
-    getArticlesPageError, getArticlesPageHasMore,
-    getArticlesPageIsLoading, getArticlesPageNum,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
     getArticlesPageView
 } from "../model/selectors/ArticlesPageSelectors";
 import {useSelector} from "react-redux";
 import {ArticlePageActions, ArticlePageReducer, getArticles} from "../model/slices/ArticleSlice";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchArticlesPage} from "pages/ArticlePage/model/services/fetchArticlesPage/fetchArticlesPage";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
 import {useCallback} from "react";
 import {Page} from "shared/ui/Page/Page";
 import {fetchNextArticlesPage} from "pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import {initArticlesPage} from "pages/ArticlePage/model/services/initArticlesPage/initArticlesPage";
 
 interface ArticlePageProps {
     className?: string;
@@ -28,7 +28,7 @@ const ArticlePage = ({className}: ArticlePageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const articles = useSelector(getArticles.selectAll)
-    const view = useSelector(getArticlesPageView)
+    const view = useSelector(getArticlesPageView);
     const dispatch = useAppDispatch();
 
 
@@ -41,14 +41,11 @@ const ArticlePage = ({className}: ArticlePageProps) => {
     },[dispatch])
 
     useInitEffect(()=>{
-        dispatch(ArticlePageActions.initView())
-        dispatch(fetchArticlesPage({
-            page: 1
-        }))
+      dispatch(initArticlesPage())
     })
 
     return (
-        <DynemicModuleLoader reducers={reducers}>
+        <DynemicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={classNames(cls.ArticlePage, {}, [className])} onScrollEnd={onLoadNextPage}>
                 <ArticleViewSwitcher onViewsChange={onViewsChange} views={view} />
                 <ArticleCardList view={view} isLoading={isLoading} articles={articles}/>
