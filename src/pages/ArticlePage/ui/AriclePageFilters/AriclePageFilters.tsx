@@ -16,6 +16,7 @@ import {Input} from "shared/ui/Input/Input";
 import {useTranslation} from "react-i18next";
 import {OrderType} from "shared/types/orderTypes";
 import {fetchArticlesPage} from "pages/ArticlePage/model/services/fetchArticlesPage/fetchArticlesPage";
+import {useDebounce} from "shared/lib/hooks/useDebounce/useDebounce";
 
 interface AriclePageFiltersProps {
     className?: string;
@@ -32,6 +33,8 @@ export const AriclePageFilters = ({className}: AriclePageFiltersProps) => {
     const fetchData = useCallback(()=>{
         dispatch(fetchArticlesPage({replace: true}))
     },[dispatch])
+
+    const debouncefetchData = useDebounce(fetchData, 500)
 
     const onViewsChange =useCallback((view: ArticleViews) =>{
         dispatch(ArticlePageActions.setView(view));
@@ -51,8 +54,8 @@ export const AriclePageFilters = ({className}: AriclePageFiltersProps) => {
     const onSearchChange =useCallback((text: string) =>{
         dispatch(ArticlePageActions.setSearch(text));
         dispatch(ArticlePageActions.setPage(1));
-        fetchData()
-    },[dispatch, fetchData])
+        debouncefetchData()
+    },[debouncefetchData, dispatch])
     return (
         <div className={classNames(cls.AriclePageFilters, {}, [className])}>
             <div className={cls.flex}>
