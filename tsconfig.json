@@ -30,6 +30,7 @@
     "./config/jest/setUpTests.ts",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "stories"
+    "stories",
+    "node_modules/@types/node/globals.d.ts"
   ]
 }

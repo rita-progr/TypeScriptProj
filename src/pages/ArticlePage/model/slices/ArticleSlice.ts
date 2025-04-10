@@ -25,6 +25,7 @@ const ArticlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         order: 'asc',
+        limit: 12,
         sort: ArticleSortType.CREATED,
         search: '',
         _inited: false,
@@ -65,7 +66,7 @@ const ArticlePageSlice = createSlice({
             .addCase(fetchArticlesPage.fulfilled, (state, action)=>{
                 state.isLoading = false;
                 state.error = null;
-                state.hasMore = action.payload.length > 0
+                state.hasMore = action.payload.length >=state.limit
                 if(action.meta.arg.replace){
                     articleAdapter.setAll(state, action.payload)
                 }else{

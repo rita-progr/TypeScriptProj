@@ -30,6 +30,8 @@ export const AriclePageFilters = ({className}: AriclePageFiltersProps) => {
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);
 
+
+
     const fetchData = useCallback(()=>{
         dispatch(fetchArticlesPage({replace: true}))
     },[dispatch])

@@ -6,7 +6,7 @@ export interface ArticlesSchema extends EntityState<Article, string> {
     isLoading?: boolean;
     error?: string | null;
     view: ArticleViews;
-    limit?: number;
+    limit: number;
     page?: number;
     hasMore?: boolean;
     sort?: ArticleSortType,
