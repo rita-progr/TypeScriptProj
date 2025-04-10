@@ -5,9 +5,9 @@ import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView
-} from "../model/selectors/ArticlesPageSelectors";
+} from "../../model/selectors/ArticlesPageSelectors";
 import {useSelector} from "react-redux";
-import {ArticlePageActions, ArticlePageReducer, getArticles} from "../model/slices/ArticleSlice";
+import {ArticlePageActions, ArticlePageReducer, getArticles} from "../../model/slices/ArticleSlice";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
@@ -15,6 +15,7 @@ import {useCallback} from "react";
 import {Page} from "widgets/Page/Page";
 import {fetchNextArticlesPage} from "pages/ArticlePage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {initArticlesPage} from "pages/ArticlePage/model/services/initArticlesPage/initArticlesPage";
+import {AriclePageFilters} from "pages/ArticlePage/ui/AriclePageFilters/AriclePageFilters";
 
 interface ArticlePageProps {
     className?: string;
@@ -32,10 +33,6 @@ const ArticlePage = ({className}: ArticlePageProps) => {
     const dispatch = useAppDispatch();
 
 
-    const onViewsChange =useCallback((view: ArticleViews) =>{
-        dispatch(ArticlePageActions.setView(view));
-    },[dispatch])
-
     const onLoadNextPage = useCallback(()=>{
         dispatch(fetchNextArticlesPage())
     },[dispatch])
@@ -47,7 +44,7 @@ const ArticlePage = ({className}: ArticlePageProps) => {
     return (
         <DynemicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={classNames(cls.ArticlePage, {}, [className])} onScrollEnd={onLoadNextPage}>
-                <ArticleViewSwitcher onViewsChange={onViewsChange} views={view} />
+                <AriclePageFilters/>
                 <ArticleCardList view={view} isLoading={isLoading} articles={articles}/>
             </Page>
         </DynemicModuleLoader>

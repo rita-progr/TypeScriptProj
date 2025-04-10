@@ -5,6 +5,11 @@ export interface ArticleSchema {
     error?: string|null;
     data?: Article | undefined;
 }
+export enum ArticleSortType {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'created',
+}
 
 export enum ArticleViews{
     BIG = 'BIG',
