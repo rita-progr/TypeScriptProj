@@ -7,3 +7,10 @@
   border-radius: 1rem;
 }
 
+.normal{
+  background-color: var(--bg-card);
+}
+
+.outlined{
+  border: 1px solid var(--inverted--primary-bg);
+}

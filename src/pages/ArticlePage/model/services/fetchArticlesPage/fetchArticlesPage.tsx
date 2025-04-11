@@ -1,11 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "app/providers/StoreProveder";
-import {Article} from "entities/Article";
+import {Article, ArticleType} from "entities/Article";
 import {
-    getArticlesPageLimit, getArticlesPageNum,
+    getArticlesPageLimit,
+    getArticlesPageNum,
     getArticlesPageOrder,
     getArticlesPageSearch,
-    getArticlesPageSort
+    getArticlesPageSort,
+    getArticlesPageType
 } from "../../selectors/ArticlesPageSelectors";
 import {addQueryParams} from "shared/lib/url/addQueryParams/addQueryParams";
 
@@ -20,6 +22,7 @@ export const fetchArticlesPage = createAsyncThunk<Article[], fetchArticlePagePro
         const sort = getArticlesPageSort(getState());
         const order = getArticlesPageOrder(getState());
         const search = getArticlesPageSearch(getState());
+        const type = getArticlesPageType(getState());
 
         const limit = getArticlesPageLimit(getState())
         console.log(limit)
@@ -36,7 +39,8 @@ export const fetchArticlesPage = createAsyncThunk<Article[], fetchArticlePagePro
                     _page: page,
                     _sort: sort,
                     _order: order,
-                    q: search
+                    q: search,
+                    type: type === ArticleType.ALL ? undefined : type,
                 }
             });
             return response.data

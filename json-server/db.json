@@ -86,14 +86,14 @@
     },
     {
       "id": "2",
-      "title": "Golang news",
+      "title": "Научная статья ",
       "userId": "1",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Биология за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -158,14 +158,14 @@
     },
     {
       "id": "3",
-      "title": "Python news",
+      "title": "Экономическая статья - инфляция",
       "userId": "1",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
