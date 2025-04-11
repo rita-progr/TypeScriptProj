@@ -1,6 +1,6 @@
 import cls from './AriclePageFilters.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleSortType, ArticleType, ArticleViews, ArticleViewSwitcher} from "entities/Article";
+import {ArticleSortType, ArticleType, ArticleTypeSelector, ArticleViews, ArticleViewSwitcher} from "entities/Article";
 import {useCallback} from "react";
 import {ArticlePageActions} from "pages/ArticlePage";
 import {useSelector} from "react-redux";
@@ -60,31 +60,13 @@ export const AriclePageFilters = ({className}: AriclePageFiltersProps) => {
         debouncefetchData()
     },[debouncefetchData, dispatch])
 
-    const onTypeChange =useCallback((type: TabsType) =>{
+    const onTypeChange =useCallback((type: TabsType<ArticleType>) =>{
         dispatch(ArticlePageActions.setType(type.value as ArticleType));
         dispatch(ArticlePageActions.setPage(1));
         fetchData()
     },[dispatch, fetchData])
 
-    const typeTabs: TabsType[] = [
-        {
-            value: ArticleType.ALL,
-            content:"Все статьи"
-        },
-        {
-            value: ArticleType.IT,
-            content:"Айти"
-        },
-        {
-            value: ArticleType.ECONOMICS,
-            content:"Экономика"
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content:"Наука"
-        },
 
-    ]
 
     return (
         <div className={classNames(cls.AriclePageFilters, {}, [className])}>
@@ -100,7 +82,7 @@ export const AriclePageFilters = ({className}: AriclePageFiltersProps) => {
             <Card>
                 <Input placeholder={t("Поиск")} value={search} onChange={onSearchChange}/>
             </Card>
-            <Tabs value={type} tabs={typeTabs} onTabCLick={onTypeChange}/>
+            <ArticleTypeSelector type={type} onTypeChange={onTypeChange}/>
         </div>
     )
 }

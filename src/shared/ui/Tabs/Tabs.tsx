@@ -3,23 +3,23 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {ReactNode} from "react";
 import {Card, CardTheme} from "shared/ui/Card/Card";
 
-export interface TabsType {
+export interface TabsType<T extends string> {
     value: string;
     content:ReactNode;
 }
 
-interface TabsProps {
+interface TabsProps<T extends string> {
     className?: string;
-    value:string;
-    tabs:TabsType[];
-    onTabCLick: (tab: TabsType) => void;
+    value:T;
+    tabs:TabsType<T>[];
+    onTabClick: (tab: TabsType<T>) => void;
 }
 
-export const Tabs = ({className, tabs, onTabCLick, value}: TabsProps) => {
+export const Tabs = <T extends string>({className, tabs, onTabClick, value}: TabsProps<T>) => {
 
-    const onClickTab = (tab: TabsType) => {
+    const onClickTab = (tab: TabsType<T>) => {
         return () => {
-            onTabCLick(tab);
+            onTabClick(tab as TabsType<T>);
         }
     }
 
