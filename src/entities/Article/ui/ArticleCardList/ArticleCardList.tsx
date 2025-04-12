@@ -9,9 +9,10 @@ interface ArticleCardListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleViews
+    target?: string
 }
 
-export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL, isLoading}: ArticleCardListProps) => {
+export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL, isLoading, target}: ArticleCardListProps) => {
 
 
          const getLoading= (view: ArticleViews) => (
@@ -29,7 +30,7 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
 
     const renderItem = (article: Article) => {
         return (
-            <ArticleCardItem className={cls.card} article = {article} key={article.id} view={view} />
+            <ArticleCardItem className={cls.card} article = {article} key={article.id} view={view} target={target} />
         )
     }
 

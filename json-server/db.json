@@ -1759,6 +1759,12 @@
       "userId": "2",
       "text": "Привет",
       "id": "W6_KtuE"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "Hello",
+      "id": "3mm0HSd"
     }
   ],
   "users": [

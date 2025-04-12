@@ -7,10 +7,10 @@ import {N as NavigateOptions, T as To} from "react-router/dist/development/route
 import {AxiosInstance} from "axios";
 import {ProfileSchema} from "entities/Profile";
 import {ArticleSchema} from "entities/Article";
-import {CommentSchema} from "pages/ArticleDetailsPage";
 import {addNewCommentSchema} from "features/addNewComment";
 import {ArticlesSchema} from "pages/ArticlePage";
 import {TrottlingSchema} from "features/trottlingScroll";
+import {ArticleDetailsPageSchema} from "pages/ArticleDetailsPage/model/types";
 
 
 
@@ -22,7 +22,7 @@ export interface StateSchema {
     login?: AuthByUserNameSchema
     profile?: ProfileSchema
     articles?: ArticleSchema
-    articleDetailsComments?: CommentSchema
+    articleDetailsPage?:ArticleDetailsPageSchema
     newComment?: addNewCommentSchema
     articlesPage?:ArticlesSchema
 }

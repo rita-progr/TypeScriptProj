@@ -33,6 +33,6 @@ export const Primary: Story = {
             },
         ],
         value:"Tab 1",
-        onTabCLick: action('onTabCLick'),
+        onTabClick: action('onTabCLick'),
     },
 };

@@ -1,12 +1,12 @@
 import cls from './ArticleDetailsPage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleDetails} from "entities/Article";
+import {ArticleCardList, ArticleDetails} from "entities/Article";
 import {useNavigate, useParams} from "react-router-dom";
 import {CommentList} from "entities/Comment";
 import {Text} from 'shared/ui/Text/Text'
 import {useTranslation} from "react-i18next";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
-import {ArticleDetailsPageCommentReducer, getArticleComments} from "../model/slice/ArticleDetailsPageCommentSlice";
+import { getArticleComments} from "../model/slice/ArticleDetailsPageCommentSlice";
 import {useSelector} from "react-redux";
 import {getArticlesDetailsLoading} from "../model/selectors/getArticlesDetailsState";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
@@ -17,6 +17,9 @@ import {useCallback} from "react";
 import {addNewCommentArticle} from "pages/ArticleDetailsPage/model/services/addNewCommentArticle";
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import {ArticleDetailsPageReducer} from "pages/ArticleDetailsPage/model/slice";
+import {getArticleRecommended} from "pages/ArticleDetailsPage/model/slice/ArticleDetailsRecommendedSlice";
+import {fetchArticleRecommendedPage} from "pages/ArticleDetailsPage/model/services/fetchArticleRecommended";
 
 
 interface ArticleDetailsPageProps {
@@ -24,7 +27,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers : ReducersList = {
-    articleDetailsComments: ArticleDetailsPageCommentReducer
+    articleDetailsPage: ArticleDetailsPageReducer
 }
 
 const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
@@ -32,6 +35,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const {id} = useParams<{id: string}>();
     const isLoading = useSelector(getArticlesDetailsLoading);
     const dispatch = useAppDispatch();
+    const recommended = useSelector(getArticleRecommended.selectAll)
     const comments = useSelector(getArticleComments.selectAll);
     const navigate = useNavigate();
 
@@ -41,6 +45,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
 
    useInitEffect(() => {
        dispatch(fetchArticleDetailsComments(id));
+       dispatch(fetchArticleRecommendedPage())
    })
 
     const sendComment = useCallback((text: string)=>{
@@ -63,6 +68,8 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
                 <ArticleDetails id = {id}/>
                 <AddNewCommentForm sendNewComment={sendComment}/>
                 <div className={cls.comments}>
+                    <Text title={t('Рекомендации')}/>
+                    <ArticleCardList articles={recommended} target={`_blank`}/>
                     <Text title={t('Комментарии')}/>
                     <CommentList isLoading={isLoading} comments={comments}/>
                 </div>
