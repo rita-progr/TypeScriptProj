@@ -5,6 +5,7 @@ import {NotFound} from "pages/NotFound";
 import {ProfilePage} from "pages/ProfilePage";
 import {ArticlePage} from "pages/ArticlePage";
 import {ArticleDetailsPage} from "pages/ArticleDetailsPage";
+import {ArticleChangePage} from "pages/ArticleChangePage";
 
 export enum RouteType {
     MAIN = 'main',
@@ -12,6 +13,8 @@ export enum RouteType {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'article_details',
+    ARTICLE_CREATE = 'article_create',
+    ARTICLE_EDIT = 'article_edit',
     NOT_FOUND = 'notFound',
 }
 
@@ -25,6 +28,8 @@ export const RoutePath: Record<RouteType,string>={
     [RouteType.PROFILE]:"/profile/", //+id
     [RouteType.ARTICLES]:"/articles",
     [RouteType.ARTICLE_DETAILS]:"/articles/", //+id
+    [RouteType.ARTICLE_CREATE]:"/articles/create/",
+    [RouteType.ARTICLE_EDIT]:"/articles/:id/edit/",
     [RouteType.NOT_FOUND]:"*",
 }
 export const RouteConfig:Record<RouteType, AppRouteProps> = {
@@ -49,6 +54,16 @@ export const RouteConfig:Record<RouteType, AppRouteProps> = {
     [RouteType.ARTICLE_DETAILS]:{
         path:`${RoutePath.article_details}:id`,
         element:<ArticleDetailsPage/>,
+        authOnly: true
+    },
+    [RouteType.ARTICLE_EDIT]:{
+        path:`${RoutePath.article_edit}`,
+        element:<ArticleChangePage/>,
+        authOnly: true
+    },
+    [RouteType.ARTICLE_CREATE]:{
+        path:`${RoutePath.article_create}`,
+        element:<ArticleChangePage/>,
         authOnly: true
     },
     [RouteType.NOT_FOUND]:{

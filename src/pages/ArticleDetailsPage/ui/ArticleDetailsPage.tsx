@@ -15,11 +15,10 @@ import {fetchArticleDetailsComments} from "../model/services/fetchArticleDetails
 import {AddNewCommentForm} from "features/addNewComment";
 import {useCallback} from "react";
 import {addNewCommentArticle} from "pages/ArticleDetailsPage/model/services/addNewCommentArticle";
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
 import {ArticleDetailsPageReducer} from "pages/ArticleDetailsPage/model/slice";
 import {getArticleRecommended} from "pages/ArticleDetailsPage/model/slice/ArticleDetailsRecommendedSlice";
 import {fetchArticleRecommendedPage} from "pages/ArticleDetailsPage/model/services/fetchArticleRecommended";
+import {ArticleDetailsHeader} from "./ArticleDetailsHeader/ArticleDetaisHeader";
 
 
 interface ArticleDetailsPageProps {
@@ -37,11 +36,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
     const recommended = useSelector(getArticleRecommended.selectAll)
     const comments = useSelector(getArticleComments.selectAll);
-    const navigate = useNavigate();
 
-    const backToList = useCallback(()=>{
-        navigate(RoutePath.articles)
-    },[navigate])
 
    useInitEffect(() => {
        dispatch(fetchArticleDetailsComments(id));
@@ -64,7 +59,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     return (
         <DynemicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <CustomButton onClick={backToList} theme={ThemeButton.OUTLINE}>{t('Назад')}</CustomButton>
+               <ArticleDetailsHeader/>
                 <ArticleDetails id = {id}/>
                 <AddNewCommentForm sendNewComment={sendComment}/>
                 <div className={cls.comments}>

@@ -53,7 +53,8 @@ export enum ArticleType {
 export type ArticleBlocks = ArticleIMAGEBlocks| ArticleTEXTBlocks| ArticleCODEBlocks;
 
 export interface Article {
-    id:string;
+    id:number;
+    userId?:number | string;
     title: string;
     subtitle: string;
     user?: IUser;
