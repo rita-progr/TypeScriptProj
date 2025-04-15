@@ -93,6 +93,7 @@
     "@babel/preset-react": "^7.26.3",
     "@reduxjs/toolkit": "^2.6.1",
     "@types/react-redux": "^7.1.34",
+    "@types/react-window": "^1.8.8",
     "axios": "^1.8.2",
     "concurrently": "^9.1.2",
     "i18next": "^24.2.2",
@@ -102,7 +103,8 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^15.4.1",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.1.5"
+    "react-router-dom": "^7.1.5",
+    "react-window": "^1.8.11"
   },
   "eslintConfig": {
     "extends": [
