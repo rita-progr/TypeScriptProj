@@ -1,4 +1,3 @@
-import cls from './ProfilePageHeader.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {Text} from "shared/ui/Text/Text";
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
@@ -10,6 +9,7 @@ import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {profileActions} from "entities/Profile/model/slice/profileSlice";
 import {updateProfileData} from "entities/Profile/model/services/updateProfileData/updateProfileData";
 import {getUserAuthData} from "entities/User";
+import {HStack} from "shared/ui/Stack";
 
 interface ProfilePageHeaderProps{
     className?: string;
@@ -38,7 +38,7 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) => {
 
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack max align={"center"} justify={"between"} className={classNames("", {}, [className])}>
                 <Text title={t('Профиль')}/>
             {edit && (
                 <>
@@ -47,17 +47,17 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) => {
                             {t('Редактировать')}
                         </CustomButton>
                     ):(
-                        <>
-                            <CustomButton theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit} className={cls.cancel}>
+                        <HStack gap={"32"}>
+                            <CustomButton theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit} className={""}>
                                 {t('Отменить')}
                             </CustomButton>
                             <CustomButton theme={ThemeButton.OUTLINE} onClick={onSave}>
                                 {t('Сохранить')}
                             </CustomButton>
-                        </>
+                        </HStack>
                     )}
                 </>
             )}
-        </div>
+        </HStack>
     )
 }

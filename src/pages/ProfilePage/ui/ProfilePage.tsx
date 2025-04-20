@@ -22,6 +22,7 @@ import {
 } from "entities/Profile/model/selectors/getProfileValidateError/getProfileValidateError";
 import {useParams} from "react-router-dom";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
+import {VStack} from "shared/ui/Stack";
 
 const reducers = {
     profile: profileReducer,
@@ -78,7 +79,7 @@ interface ProfilePageProps{
 
      return (
         <DynemicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ProfilePage, {},[className])}>
+            <VStack gap = {"16"} className={classNames(cls.ProfilePage, {},[className])}>
                 <ProfilePageHeader/>
                 {validateErrors &&
                     (validateErrors.map((error)=>(
@@ -96,7 +97,7 @@ interface ProfilePageProps{
                              onChangeCurrency={onChangeCurrency}
                              onChangeCountry={onChangeCountry}
                              readOnly={readOnly}/>
-            </div>
+            </VStack>
        </DynemicModuleLoader>
     )
 }
