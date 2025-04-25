@@ -1,13 +1,13 @@
 import cls from './ArticlePage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleCardList, ArticleViews, ArticleViewSwitcher} from "entities/Article";
+import {ArticleCardList} from "entities/Article";
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView
 } from "../../model/selectors/ArticlesPageSelectors";
 import {useSelector} from "react-redux";
-import {ArticlePageActions, ArticlePageReducer, getArticles} from "../../model/slices/ArticleSlice";
+import {ArticlePageReducer, getArticles} from "../../model/slices/ArticleSlice";
 import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
