@@ -1,6 +1,7 @@
 import {Select} from "shared/ui/Select/Select";
 import {Currency} from "../../model/types/CurrencySchema";
 import {useCallback} from "react";
+import {ListBox, ListBoxOptions} from "shared/ui/ListBox/ListBox";
 
 interface CurrencyProps{
     className?: string;
@@ -21,11 +22,11 @@ export const CurrencySelect = ({className, value, onChange}:CurrencyProps) => {
     ]
 
     return (
-        <Select
-            label={"Укажите валюту"}
-            options={options}
+        <ListBox
+            direction={'top'}
+            items={options}
             onChange={onChangeHandler}
-            value={value}
+            value={value ?? ''}
         />
     )
 }

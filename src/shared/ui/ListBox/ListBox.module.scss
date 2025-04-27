@@ -1,0 +1,31 @@
+.ListBox {
+  background: var(--bg-card);
+  position: relative;
+
+}
+
+
+
+.focused{
+    background: var(--bg-card);
+}
+
+.selected{
+  background: var(--bg-card);
+}
+
+.options{
+  background: var(--primary-color);
+  position: absolute;
+  color:var(--inverted-primary-color);
+  z-index: 1000;
+
+}
+
+//.topOptions{
+//  bottom:100%;
+//}
+//
+//.bottomOptions{
+//  top:100%;
+//}

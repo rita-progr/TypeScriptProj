@@ -8,7 +8,7 @@ const Main = () => {
     const {t} = useTranslation('main')
 
     return (
-        <div className={classNames(cls.Main,{},[])} data-testId = "main">
+        <div className={classNames(cls.Main,{},[])} data-testid = "main">
             {t('main')}
             <Counter />
         </div>
