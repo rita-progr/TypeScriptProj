@@ -5,12 +5,14 @@ import {Text, TextTheme} from 'shared/ui/Text/Text'
 import {Listbox as ListboxH, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/react'
 import {Fragment, ReactNode, useState} from 'react'
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {Direction} from "shared/types/ui";
 
-type Direction = 'top' | 'bottom' ;
 
 export const mapDirection: Record<Direction, string> = {
-    top: cls.topOptions,
-    bottom: cls.bottomOptions
+    'top left': cls.topLeftOptions,
+    'top right': cls.topRightOptions,
+    'bottom right': cls.bottomRightOptions,
+    'bottom left': cls.bottomLeftOptions,
 }
 
 
@@ -31,14 +33,14 @@ interface ListBoxProps {
     disabled?:boolean;
 }
 
-export const ListBox = ({className, direction = 'bottom', onChange, value, defaultValue, disabled, items}: ListBoxProps) => {
+export const ListBox = ({className, direction = 'bottom left', onChange, value, defaultValue, disabled, items}: ListBoxProps) => {
     const classes = [
         mapDirection[direction],
     ]
     return (
-            <ListboxH  onChange={onChange} as = 'div' disabled={disabled} value={value} className={cls.ListBox}>
+            <ListboxH  onChange={onChange} as = 'div'  value={value} className={cls.ListBox}>
                 <ListboxButton > <CustomButton theme={ThemeButton.OUTLINE}><Text text={ value ?? defaultValue} theme={TextTheme.PRIMARY}/></CustomButton></ListboxButton>
-                <ListboxOptions anchor="bottom" className={classNames(cls.options,{},classes)}>
+                <ListboxOptions className={classNames(cls.options,{},classes)}>
                             {items.map((person) => (
                                 <ListboxOption as = {Fragment}  key={person.value} value={person.value}>
                                         {({ focus, selected }) => (

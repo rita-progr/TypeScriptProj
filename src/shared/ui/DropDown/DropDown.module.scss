@@ -1,24 +1,15 @@
-.ListBox {
+.DropDown {
   position: relative;
 }
 
-
-
-.focused{
-    background: var(--bg-card);
-}
-
-.selected{
-  background: var(--bg-card);
-}
-
-.options{
-  background: var(--primary-color);
+.menu{
   position: absolute;
+  background: var(--inverted--primary-bg);
+  padding:.5rem;
+}
+
+.item{
   color:var(--inverted-primary-color);
-  z-index: 1000;
-
-
 }
 
 .topLeftOptions{
@@ -33,10 +24,10 @@
 
 .bottomLeftOptions{
   top:100%;
-  left:0;
+  right:0;
 }
 
 .bottomRightOptions{
   top:100%;
-  right:0;
+  left:0;
 }
