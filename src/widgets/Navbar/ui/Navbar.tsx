@@ -6,6 +6,8 @@ import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
+import {DropDown} from "shared/ui/DropDown/DropDown";
+import {Avatar} from "shared/ui/Avatar/Avatar";
 
 
 
@@ -36,9 +38,14 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
     if(userData){
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <CustomButton onClick={onLogout} color={ColorButton.INVERTED}>
-                    {t("Выйти")}
-                </CustomButton>
+                <DropDown items={[
+                    {
+                        content:t("Выйти"),
+                        id:'12',
+                        onClick: onLogout
+                    },
+                ]}
+                trigger={<Avatar size = {30} img={userData.avatar}/>}/>
             </header>
                 )
                 }

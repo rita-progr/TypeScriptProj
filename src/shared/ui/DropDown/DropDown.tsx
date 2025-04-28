@@ -40,8 +40,8 @@ export function DropDown(props:DropDownProps) {
             <MenuItems className={classNames(cls.menu, {}, classes)}>
                 {items.map(item=>{
                     const content = ({focus}: {focus:boolean})=> (
-                        <button className={classNames(cls.item,{[cls.active]:focus})}>
-                            Settings
+                        <button className={classNames(cls.item,{[cls.active]:focus})} onClick={item.onClick}>
+                            {item.content}
                         </button>
                     )
                     if(item.href){
