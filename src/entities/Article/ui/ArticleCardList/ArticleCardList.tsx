@@ -3,6 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {Article, ArticleViews} from "../../model/types/ArticleSchema";
 import { ArticleCardItem } from '../ArticleCardItem/ArticleCardItem';
 import {ArticleCardSkeletonItem} from "entities/Article/ui/ArticleCardItem/ArticleCardSkeleton";
+import {HStack} from "shared/ui/Stack";
 
 
 interface ArticleCardListProps {
@@ -37,11 +38,11 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
 
 
     return (
-                    <div className={classNames(cls.ArticleCardList, {}, [className, cls[view]])}>
-                        {articles.length > 0 ?
+                    <HStack gap={'8'} className={classNames(cls.ArticleCardList, {}, [className, cls[view]])}>
+                        { articles && articles.length > 0 ?
                             (articles.map((article: Article) => (renderItem(article)))) : null}
                         {isLoading && getLoading(view)}
-                    </div>
+                    </HStack>
 
     )
 }

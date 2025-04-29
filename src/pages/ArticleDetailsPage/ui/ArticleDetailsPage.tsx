@@ -1,7 +1,7 @@
 import cls from './ArticleDetailsPage.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleCardList, ArticleDetails} from "entities/Article";
-import {useNavigate, useParams} from "react-router-dom";
+import { ArticleDetails} from "entities/Article";
+import { useParams} from "react-router-dom";
 import {CommentList} from "entities/Comment";
 import {Text} from 'shared/ui/Text/Text'
 import {useTranslation} from "react-i18next";
@@ -19,6 +19,7 @@ import {ArticleDetailsPageReducer} from "pages/ArticleDetailsPage/model/slice";
 import {getArticleRecommended} from "pages/ArticleDetailsPage/model/slice/ArticleDetailsRecommendedSlice";
 import {fetchArticleRecommendedPage} from "pages/ArticleDetailsPage/model/services/fetchArticleRecommended";
 import {ArticleDetailsHeader} from "./ArticleDetailsHeader/ArticleDetaisHeader";
+import {ArticleRecommendationList} from "features/articleRecommendationList";
 
 
 interface ArticleDetailsPageProps {
@@ -34,7 +35,6 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const {id} = useParams<{id: string}>();
     const isLoading = useSelector(getArticlesDetailsLoading);
     const dispatch = useAppDispatch();
-    const recommended = useSelector(getArticleRecommended.selectAll)
     const comments = useSelector(getArticleComments.selectAll);
 
 
@@ -63,8 +63,7 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
                 <ArticleDetails id = {id}/>
                 <AddNewCommentForm sendNewComment={sendComment}/>
                 <div className={cls.comments}>
-                    <Text title={t('Рекомендации')}/>
-                    <ArticleCardList articles={recommended} target={`_blank`}/>
+                    <ArticleRecommendationList/>
                     <Text title={t('Комментарии')}/>
                     <CommentList isLoading={isLoading} comments={comments}/>
                 </div>
