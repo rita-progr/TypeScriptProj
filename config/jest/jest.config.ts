@@ -35,6 +35,13 @@ const config: Config = {
     __IS_DEV__: true,
     __PROJECT__:'jest'
   },
+  reporters: [
+    ["jest-html-reporters", {
+      publicPath: `<rootDir>/reports/unit`,
+      filename: "report.html",
+      openReport: true
+    }]
+  ]
   // transformIgnorePatterns: [
   //   "/node_modules/",
   //   // "\\.pnp\\.[^\\/]+$"
