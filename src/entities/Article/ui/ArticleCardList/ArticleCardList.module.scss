@@ -1,9 +1,13 @@
 
+.ArticleCardList{
+  flex-wrap: wrap;
+}
 
 .BIG{
   .card{
     margin:15px;
   }
+
 }
 
 
@@ -19,7 +23,6 @@
   &.ArticleCardList{
     margin: 15px;
     display: flex;
-    flex-wrap: wrap;
     max-height: 100%;
     overflow-y: auto;
   }

@@ -1,6 +1,5 @@
 import {validateData} from "./validateData";
-import {validateProfileErrors} from "../../types/ProfileSchema";
-
+import {validateProfileErrors} from "../../types/editableProfileCardSchema";
 
 const data = {
     first: 'Рита',
