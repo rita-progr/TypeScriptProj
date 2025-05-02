@@ -6,6 +6,8 @@ import {ProfilePage} from "pages/ProfilePage";
 import {ArticlePage} from "pages/ArticlePage";
 import {ArticleDetailsPage} from "pages/ArticleDetailsPage";
 import {ArticleChangePage} from "pages/ArticleChangePage";
+import {AdminPanelPage} from "pages/AdminPanelPage";
+import {RolesType} from "entities/User";
 
 export enum RouteType {
     MAIN = 'main',
@@ -15,11 +17,13 @@ export enum RouteType {
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
+    ADMIN_PANEL = 'admin_panel',
     NOT_FOUND = 'notFound',
 }
 
 export type AppRouteProps = RouteProps & {
-    authOnly?:boolean
+    authOnly?:boolean;
+    roles?:RolesType[];
 }
 
 export const RoutePath: Record<RouteType,string>={
@@ -27,6 +31,7 @@ export const RoutePath: Record<RouteType,string>={
     [RouteType.ABOUT]:"/about",
     [RouteType.PROFILE]:"/profile/", //+id
     [RouteType.ARTICLES]:"/articles",
+    [RouteType.ADMIN_PANEL]:"/admin_panel",
     [RouteType.ARTICLE_DETAILS]:"/articles/", //+id
     [RouteType.ARTICLE_CREATE]:"/articles/create/",
     [RouteType.ARTICLE_EDIT]:"/articles/:id/edit/",
@@ -50,6 +55,12 @@ export const RouteConfig:Record<RouteType, AppRouteProps> = {
         path:RoutePath.articles,
         element:<ArticlePage/>,
         authOnly: true
+    },
+    [RouteType.ADMIN_PANEL]:{
+        path:RoutePath.admin_panel,
+        element:<AdminPanelPage/>,
+        authOnly: true,
+        roles: [RolesType.MANAGER, RolesType.ADMIN]
     },
     [RouteType.ARTICLE_DETAILS]:{
         path:`${RoutePath.article_details}:id`,

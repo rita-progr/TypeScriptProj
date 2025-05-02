@@ -11,6 +11,10 @@ interface ProfilePageProps{
  const ProfilePage = ({className}:ProfilePageProps) => {
      const {id} = useParams<{id:string}>();
 
+     if(!id){
+         return null;
+     }
+
      return (
             <VStack gap = {"16"} className={classNames(cls.ProfilePage, {},[className])}>
                 <EditableProfileCard id = {id}/>

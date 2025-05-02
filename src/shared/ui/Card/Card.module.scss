@@ -5,6 +5,8 @@
   padding:15px;
   background-color: var(--bg-card);
   border-radius: 1rem;
+  max-height: 332px;
+  overflow-y: hidden;
 }
 
 .normal{

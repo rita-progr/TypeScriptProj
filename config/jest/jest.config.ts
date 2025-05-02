@@ -17,6 +17,7 @@ const config: Config = {
   ],
   moduleDirectories: [
     'node_modules',
+    'src'
   ],
   modulePaths: [
     '<rootDir>src',
@@ -30,6 +31,8 @@ const config: Config = {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^entities/(.*)$': '<rootDir>/src/entities/$1',
   },
   globals: {
     __IS_DEV__: true,

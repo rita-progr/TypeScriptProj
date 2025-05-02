@@ -54,7 +54,7 @@ const {
     if(error) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-                    <Text title={'Произошла ошибка'} theme={TextTheme.ERROR} align={TextAlign.CENTER}/>
+                    <Text title={'Произошла ошибка'} theme={TextTheme.ERROR} align={TextAlign.CENTER} data-testid={'ProfileCard.Error'}/>
                     <Text text={'Поажлуйста, перезагрузите старницу'}  theme={TextTheme.ERROR} align={TextAlign.CENTER}/>
             </div>
         )
@@ -72,12 +72,14 @@ const {
                 onChange={onChangeFirstname}
                     value={data?.first}
                     placeholder={t('Ваше имя')}
+                    data-testid={'ProfileCard.Firstname'}
                     className={cls.input}/>
                 <Input
                     readOnly={readOnly}
                     onChange={onChangeLastname}
                     value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
+                    data-testid={'ProfileCard.Lastname'}
                     className={cls.input}/>
                 <Input
                     readOnly={readOnly}

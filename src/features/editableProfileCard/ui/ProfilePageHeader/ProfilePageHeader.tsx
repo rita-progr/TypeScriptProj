@@ -44,15 +44,27 @@ export const ProfilePageHeader = ({className}:ProfilePageHeaderProps) => {
             {edit && (
                 <>
                     {readOnly ? (
-                        <CustomButton theme={ThemeButton.OUTLINE} onClick={onEdit}>
+                        <CustomButton
+                            theme={ThemeButton.OUTLINE}
+                            onClick={onEdit}
+                            data-testid={'ProfileCard.EditButton'}>
                             {t('Редактировать')}
                         </CustomButton>
                     ):(
                         <HStack gap={"32"}>
-                            <CustomButton theme={ThemeButton.OUTLINE_RED} onClick={onCancelEdit} className={""}>
+                            <CustomButton
+                                theme={ThemeButton.OUTLINE_RED}
+                                onClick={onCancelEdit}
+                                className={""}
+                                data-testid={'ProfileCard.CancelButton'}>
                                 {t('Отменить')}
+
                             </CustomButton>
-                            <CustomButton theme={ThemeButton.OUTLINE} onClick={onSave}>
+                            <CustomButton
+                                theme={ThemeButton.OUTLINE}
+                                onClick={onSave}
+                                data-testid={'ProfileCard.SaveButton'}>
+
                                 {t('Сохранить')}
                             </CustomButton>
                         </HStack>

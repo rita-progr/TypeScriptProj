@@ -1778,14 +1778,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN", "USER"],
       "avatar": "https://cisoclub.ru/_ipx/f_webp,q_99/wp-content/uploads/belye-hakery-640x396.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://cisoclub.ru/_ipx/f_webp,q_99/wp-content/uploads/belye-hakery-640x396.png"
+    },
+    {
+      "id": "3",
+      "username": "user1",
+      "password": "123",
+      "roles": ["MANAGER", "USER"],
+      "avatar": "https://cisoclub.ru/_ipx/f_webp,q_99/wp-content/uploads/belye-hakery-640x396.png"
+    },
+    {
+      "id": "4",
+      "username": "admin1",
+      "password": "123",
+      "roles": ["ADMIN"],
       "avatar": "https://cisoclub.ru/_ipx/f_webp,q_99/wp-content/uploads/belye-hakery-640x396.png"
     }
   ],

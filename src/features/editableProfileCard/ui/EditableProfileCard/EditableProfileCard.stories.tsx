@@ -1,8 +1,8 @@
 // import React from 'react';
 // import { ComponentStory,  } from '@storybook/react';
-//
-// import { EditableProfileCard } from './EditableProfileCard';
-//
+
+// import { EditableProfileCard } from './EditablePrxofileCard';
+
 // export default {
 //     title: 'features/EditableProfileCard',
 //     component: EditableProfileCard,
