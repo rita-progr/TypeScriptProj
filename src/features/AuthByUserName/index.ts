@@ -4,5 +4,5 @@ export {loginReducer} from "./model/slice/AuthByUserName";
 
 export {
     UserModal,
-    AuthByUserNameSchema,
 }
+export type {AuthByUserNameSchema}
