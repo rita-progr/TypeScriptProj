@@ -3,7 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 
 import {Listbox as ListboxH, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/react'
-import {Fragment, ReactNode, useState} from 'react'
+import {Fragment, ReactNode} from 'react'
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {Direction} from "shared/types/ui";
 

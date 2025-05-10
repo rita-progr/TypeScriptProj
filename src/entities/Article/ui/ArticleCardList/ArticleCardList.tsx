@@ -2,7 +2,7 @@ import cls from './ArticleCardList.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {Article, ArticleViews} from "../../model/types/ArticleSchema";
 import { ArticleCardItem } from '../ArticleCardItem/ArticleCardItem';
-import {ArticleCardSkeletonItem} from "entities/Article/ui/ArticleCardItem/ArticleCardSkeleton";
+import {ArticleCardSkeletonItem} from "../ArticleCardItem/ArticleCardSkeleton";
 import {HStack} from "shared/ui/Stack";
 
 
@@ -29,10 +29,10 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
                 </div>
         )
 
-
     const renderItem = (article: Article) => {
         return (
             <ArticleCardItem className={cls.card} article = {article} key={article.id} view={view} target={target} />
+
         )
     }
 

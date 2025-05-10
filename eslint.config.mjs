@@ -4,6 +4,7 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import ritaafanPlugin from 'eslint-plugin-ritaafan-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 
 
 
@@ -19,7 +20,8 @@ export default [
 
     plugins: {
         "react-hooks": reactHooksPlugin,
-       "ritaafan-plugin":ritaafanPlugin
+        "ritaafan-plugin":ritaafanPlugin,
+        "circular-dependency-plugin":CircularDependencyPlugin,
   },
     rules: {
       "react/react-in-jsx-scope": "off",

@@ -1,6 +1,8 @@
 import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import {buildBabelLoader} from "./loaders/buildBabelLoader";
+
 
 export function BuildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
 
@@ -20,19 +22,8 @@ export function BuildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
         ]
     }
 
-
-    const BabelLoader = {
-        test: /\.m?(ts|js|tsx|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: "babel-loader",
-            options: {
-                presets: ['@babel/preset-env'],
-                // @ts-ignore
-                plugins: [options.isDev && require.resolve('react-refresh/babel')].filter(Boolean)
-            }
-        }
-    }
+    const codeBabelLoader = buildBabelLoader({...options, isTsx : false})
+    const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx : true})
 
     const typesStyles = {
         test: /\.s[ac]ss$/i,
@@ -51,14 +42,15 @@ export function BuildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
         ],
     }
 
-    const typescriptLoader = {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-        }
+    // const typescriptLoader = {
+    //         test: /\.tsx?$/,
+    //         use: 'ts-loader',
+    //         exclude: /node_modules/,
+    //     }
     return [
-        BabelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // typescriptLoader,
         typesStyles,
         svgLoader,
         fileLoader
