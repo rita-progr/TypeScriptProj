@@ -42,6 +42,7 @@ export const ArticleCardList = ({className, articles, view = ArticleViews.SMALL,
                         { articles && articles.length > 0 ?
                             (articles.map((article: Article) => (renderItem(article)))) : null}
                         {isLoading && getLoading(view)}
+
                     </HStack>
 
     )
