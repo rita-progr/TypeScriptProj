@@ -4,7 +4,7 @@
 
 .PopoverPanel{
   display: flex;
-  max-width: 400px !important;
+  width: 300px !important;
   flex-direction: column;
   position: absolute;
   background: var(--inverted--primary-bg);

@@ -31,7 +31,7 @@ export const RoutePath: Record<RouteType,string>={
     [RouteType.ABOUT]:"/about",
     [RouteType.PROFILE]:"/profile/", //+id
     [RouteType.ARTICLES]:"/articles",
-    [RouteType.ADMIN_PANEL]:"/admin_panel",
+    [RouteType.ADMIN_PANEL]:"/admin",
     [RouteType.ARTICLE_DETAILS]:"/articles/", //+id
     [RouteType.ARTICLE_CREATE]:"/articles/create/",
     [RouteType.ARTICLE_EDIT]:"/articles/:id/edit/",

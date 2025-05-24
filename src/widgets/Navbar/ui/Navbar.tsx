@@ -9,8 +9,9 @@ import {getUserAuthData, userActions} from "entities/User";
 import {DropDown, Popover} from "shared/ui/Popups";
 import {Avatar} from "shared/ui/Avatar/Avatar";
 import {Button} from "@headlessui/react";
-import Notification from 'shared/assets/NotificationIcon.svg'
+import NotificationIcon from 'shared/assets/NotificationIcon.svg'
 import {Icon} from "shared/ui/Icon/Icon";
+import {Notification} from "entities/Notification";
 
 
 
@@ -43,10 +44,10 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Popover className={cls.popover} direction={'bottom left'} trigger={(
                     <Button>
-                        <Icon Svg={Notification} inverted={true}/>
+                        <Icon Svg={NotificationIcon} inverted={true}/>
                     </Button>
                 )}>
-                    <Notification/>
+                    <Notification />
                 </Popover>
 
                 <DropDown items={[
