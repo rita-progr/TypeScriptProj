@@ -1,21 +1,12 @@
 import cls from './ListBox.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 import {Text, TextTheme} from 'shared/ui/Text/Text'
-
+import popupCls from '../../styles/Popup.module.scss';
 import {Listbox as ListboxH, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/react'
 import {Fragment, ReactNode} from 'react'
 import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
 import {Direction} from "shared/types/ui";
-
-
-export const mapDirection: Record<Direction, string> = {
-    'top left': cls.topLeftOptions,
-    'top right': cls.topRightOptions,
-    'bottom right': cls.bottomRightOptions,
-    'bottom left': cls.bottomLeftOptions,
-}
-
-
+import {mapDirection} from "../../styles/consts";
 
 export interface ListBoxOptions {
     value: string;
@@ -38,7 +29,7 @@ export const ListBox = ({className, direction = 'bottom left', onChange, value, 
         mapDirection[direction],
     ]
     return (
-            <ListboxH  onChange={onChange} as = 'div'  value={value} className={cls.ListBox}>
+            <ListboxH  onChange={onChange} as = 'div'  value={value} className={popupCls.Popup}>
                 <ListboxButton > <CustomButton theme={ThemeButton.OUTLINE}><Text text={ value ?? defaultValue} theme={TextTheme.PRIMARY}/></CustomButton></ListboxButton>
                 <ListboxOptions className={classNames(cls.options,{},classes)}>
                             {items.map((person) => (

@@ -64,7 +64,7 @@ const {
         <div className={classNames(cls.ProfileCard, {}, [className])}>
             {data?.avatar && (
                 <div className={cls.avatar}>
-                    <Avatar img={data?.avatar} alt={'аватар'}/>
+                    <Avatar img={data?.avatar} alt={'аватар'} size={100}/>
                 </div>
             )}
             <Input

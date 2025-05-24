@@ -6,8 +6,11 @@ import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
-import {DropDown} from "shared/ui/DropDown/DropDown";
+import {DropDown, Popover} from "shared/ui/Popups";
 import {Avatar} from "shared/ui/Avatar/Avatar";
+import {Button} from "@headlessui/react";
+import Notification from 'shared/assets/NotificationIcon.svg'
+import {Icon} from "shared/ui/Icon/Icon";
 
 
 
@@ -38,6 +41,14 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
     if(userData){
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Popover className={cls.popover} direction={'bottom left'} trigger={(
+                    <Button>
+                        <Icon Svg={Notification} inverted={true}/>
+                    </Button>
+                )}>
+                    <Notification/>
+                </Popover>
+
                 <DropDown items={[
                     {
                         content:t("Выйти"),
@@ -46,6 +57,7 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
                     },
                 ]}
                 trigger={<Avatar size = {30} img={userData.avatar}/>}/>
+
             </header>
                 )
                 }

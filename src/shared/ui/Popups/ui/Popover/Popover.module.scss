@@ -1,0 +1,12 @@
+.Popover {
+  position: relative;
+}
+
+.PopoverPanel{
+  display: flex;
+  max-width: 400px !important;
+  flex-direction: column;
+  position: absolute;
+  background: var(--inverted--primary-bg);
+  padding:.5rem;
+}
