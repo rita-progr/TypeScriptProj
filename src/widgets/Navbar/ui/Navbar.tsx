@@ -12,6 +12,7 @@ import {Button} from "@headlessui/react";
 import NotificationIcon from 'shared/assets/NotificationIcon.svg'
 import {Icon} from "shared/ui/Icon/Icon";
 import {Notification} from "entities/Notification";
+import {Drawer} from "shared/ui/Drawer/Drawer";
 
 
 
@@ -33,6 +34,16 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
         setIsAutModalOpen(true)
     }, []);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onOpenDrawer = useCallback(() => {
+        setIsOpen(true);
+    }, []);
+
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
@@ -43,7 +54,7 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Popover className={cls.popover} direction={'bottom left'} trigger={(
-                    <Button>
+                    <Button onClick={onOpenDrawer}>
                         <Icon Svg={NotificationIcon} inverted={true}/>
                     </Button>
                 )}>
@@ -58,7 +69,9 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
                     },
                 ]}
                 trigger={<Avatar size = {30} img={userData.avatar}/>}/>
-
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <Notification />
+                </Drawer>
             </header>
                 )
                 }
@@ -68,6 +81,7 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
             {isAutModalOpen &&
                 <UserModal onClose={onCloseModal} isOpen={isAutModalOpen}/>
             }
+
             <CustomButton onClick={onOpenModal} color={ColorButton.INVERTED}>
                 {t("Войти")}
             </CustomButton>
