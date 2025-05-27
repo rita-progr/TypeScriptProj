@@ -1,9 +1,9 @@
 import cls from './DropDown.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import {Fragment, ReactNode} from "react";
 import {Link} from "react-router-dom";
-import {Direction} from "shared/types/ui";
+import {Direction} from "@/shared/types/ui";
 import popupCls from '../../styles/Popup.module.scss';
 import {mapDirection} from "../../styles/consts";
 

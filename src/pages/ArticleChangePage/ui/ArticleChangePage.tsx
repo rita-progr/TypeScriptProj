@@ -1,5 +1,5 @@
 import cls from './ArticleChangePage.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {useParams} from "react-router-dom";
 
 interface ArticleChangePageProps {

@@ -1,20 +1,20 @@
 import cls from './Navbar.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {memo, useCallback, useState} from "react";
-import {UserModal} from "features/AuthByUserName";
-import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {UserModal} from "@/features/AuthByUserName";
+import {ColorButton, CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserAuthData, userActions} from "entities/User";
-import {DropDown, Popover} from "shared/ui/Popups";
-import {Avatar} from "shared/ui/Avatar/Avatar";
+import {getUserAuthData, userActions} from "@/entities/User";
+import {DropDown, Popover} from "@/shared/ui/Popups";
+import {Avatar} from "@/shared/ui/Avatar/Avatar";
 import {Button} from "@headlessui/react";
 import { BrowserView, MobileView } from 'react-device-detect';
-import NotificationIcon from 'shared/assets/NotificationIcon.svg'
-import {Icon} from "shared/ui/Icon/Icon";
-import {Notification} from "entities/Notification";
-import {Drawer} from "shared/ui/Drawer/Drawer";
-import {AnimationProvider} from "shared/lib/components/useAnimationLibs/useAnimationLibs";
+import NotificationIcon from '@/shared/assets/NotificationIcon.svg'
+import {Icon} from "@/shared/ui/Icon/Icon";
+import {Notification} from "@/entities/Notification";
+import {Drawer} from "@/shared/ui/Drawer/Drawer";
+import {AnimationProvider} from "@/shared/lib/components/useAnimationLibs/useAnimationLibs";
 
 
 

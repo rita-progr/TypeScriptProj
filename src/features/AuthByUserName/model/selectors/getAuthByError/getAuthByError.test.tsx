@@ -1,4 +1,4 @@
-import {StateSchema} from "app/providers/StoreProveder";
+import {StateSchema} from "@/app/providers/StoreProveder";
 
 describe('getAuthByError.test', () => {
     test('success error', ()=>{

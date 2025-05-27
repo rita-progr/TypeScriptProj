@@ -1,8 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ThunkConfig} from "app/providers/StoreProveder";
-import {getUserAuthData} from "entities/User";
-import {getArticleData} from "entities/Article/model/selectors/ArticleSelectors";
-import {addNewCommentActions} from "features/addNewComment/model/slices/addNewCommentSlice";
+import {ThunkConfig} from "@/app/providers/StoreProveder";
+import {getUserAuthData} from "@/entities/User";
+import {getArticleData} from "@/entities/Article/model/selectors/ArticleSelectors";
+import {addNewCommentActions} from "@/features/addNewComment/model/slices/addNewCommentSlice";
 import {fetchArticleDetailsComments} from "./fetchArticleDetailsComments";
 
 

@@ -1,7 +1,7 @@
 import cls from './ArticleImageBlockComponent.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleIMAGEBlocks} from "entities/Article/model/types/ArticleSchema";
-import {Text, TextAlign} from "shared/ui/Text/Text";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {ArticleIMAGEBlocks} from "@/entities/Article/model/types/ArticleSchema";
+import {Text, TextAlign} from "@/shared/ui/Text/Text";
 
 interface ArticleImageBlockComponentProps {
     className?: string;

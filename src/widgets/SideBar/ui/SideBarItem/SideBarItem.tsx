@@ -1,8 +1,8 @@
 import cls from './SideBarItem.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {CustomLink} from "shared/ui/CustomLink/CustomLink";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {CustomLink} from "@/shared/ui/CustomLink/CustomLink";
 import {memo} from "react";
-import {getUserAuthData} from "entities/User";
+import {getUserAuthData} from "@/entities/User";
 import {useSelector} from "react-redux";
 import {ItemsListInterface} from "../model/types/ItemListInterface";
 

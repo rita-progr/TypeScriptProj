@@ -1,20 +1,20 @@
 import cls from './UserForm.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {Input} from "shared/ui/Input/Input";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Input} from "@/shared/ui/Input/Input";
 import { useSelector} from "react-redux";
 import {getUsername} from "../../model/selectors/getAuthByUserName/getAuthByUserName";
 
-import {loginByUsername} from "features/AuthByUserName/model/services/loginByUserName/loginByUserName";
+import {loginByUsername} from "@/features/AuthByUserName/model/services/loginByUserName/loginByUserName";
 import {memo, useCallback} from "react";
-import {ColorButton, CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {ColorButton, CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {loginActions, loginReducer} from "../../model/slice/AuthByUserName";
-import {Text, TextTheme} from "shared/ui/Text/Text";
+import {Text, TextTheme} from "@/shared/ui/Text/Text";
 import {getPassword} from "../../model/selectors/getAuthByPassword/getAuthByPassword";
 import {getLoading} from "../../model/selectors/getAuthByLoading/getAuthByLoading";
 import {getError} from "../../model/selectors/getAuthByError/getAuthByError";
-import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {DynemicModuleLoader, ReducersList} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 
 export interface UserFormProps{

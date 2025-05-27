@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import {memo, useCallback} from 'react';
 import {ProfilePageHeader} from "../ProfilePageHeader/ProfilePageHeader";
-import {Text, TextTheme} from "shared/ui/Text/Text";
-import {ProfileCard} from "entities/Profile";
-import {Currency} from "entities/Currency";
-import {Country} from "entities/Country";
-import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {Text, TextTheme} from "@/shared/ui/Text/Text";
+import {ProfileCard} from "@/entities/Profile";
+import {Currency} from "@/entities/Currency";
+import {Country} from "@/entities/Country";
+import {useInitEffect} from "@/shared/lib/hooks/useInitEffect/useInitEffect";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {profileActions, profileReducer} from "../../model/slice/profileSlice";
 import {useSelector} from "react-redux";
 import {getProfileForm} from "../../model/selectors/getProfileForm/getProfileForm";
@@ -17,7 +17,7 @@ import {
     getProfileValidateError
 } from "../../model/selectors/getProfileValidateError/getProfileValidateError";
 import {fetchProfileData} from "../../model/services/fetchProfileData/fetchProfileData";
-import {DynemicModuleLoader} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {DynemicModuleLoader} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
 
 interface EditableProfileCardProps {
     className?: string;

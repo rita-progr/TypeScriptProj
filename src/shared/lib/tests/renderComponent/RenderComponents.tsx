@@ -1,7 +1,7 @@
 import {render} from "@testing-library/react";
 import {ReactNode} from "react";
 import {MemoryRouter} from "react-router-dom";
-import {StateSchema, StoreProvider} from "app/providers/StoreProveder";
+import {StateSchema, StoreProvider} from "@/app/providers/StoreProveder";
 import {ReducersMapObject} from "@reduxjs/toolkit";
 
 type DeepPartial<T> = {

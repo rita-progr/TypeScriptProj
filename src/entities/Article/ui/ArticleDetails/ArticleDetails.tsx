@@ -1,22 +1,22 @@
 import cls from './ArticleDetails.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {useCallback, useEffect} from "react";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchArticleById} from "entities/Article/model/services/fetchArticleById";
-import {DynemicModuleLoader} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {fetchArticleById} from "@/entities/Article/model/services/fetchArticleById";
+import {DynemicModuleLoader} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
 import {ArticleReducer} from "../../model/slice/ArticleSlice";
 import {getArticleData, getArticleError, getArticleIsLoading} from "../../model/selectors/ArticleSelectors";
 import {useSelector} from "react-redux";
-import {Text, TextAlign, TextTheme} from "shared/ui/Text/Text";
-import {Skeleton} from "shared/ui/Skeleton/Skeleton";
-import {Avatar} from "shared/ui/Avatar/Avatar";
-import {Icon} from "shared/ui/Icon/Icon";
-import EyeIcon from 'shared/assets/eyeIcon.svg';
-import CalendarIcon from 'shared/assets/calendarIcon.svg';
+import {Text, TextAlign, TextTheme} from "@/shared/ui/Text/Text";
+import {Skeleton} from "@/shared/ui/Skeleton/Skeleton";
+import {Avatar} from "@/shared/ui/Avatar/Avatar";
+import {Icon} from "@/shared/ui/Icon/Icon";
+import EyeIcon from '@/shared/assets/eyeIcon.svg';
+import CalendarIcon from '@/shared/assets/calendarIcon.svg';
 import {ArticleBlocks, ArticleBlockType} from "../../model/types/ArticleSchema";
-import {ArticleCodeBlockComponent} from "entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
-import {ArticleTextBlockComponent} from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
-import {ArticleImageBlockComponent} from "entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
+import {ArticleCodeBlockComponent} from "@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
+import {ArticleTextBlockComponent} from "@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
+import {ArticleImageBlockComponent} from "@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
 
 interface ArticleDetailsProps {
     className?: string;

@@ -1,13 +1,13 @@
 import {RouteProps} from "react-router-dom";
-import {MainAsync} from "pages/MainPage";
-import {AboutAsync} from "pages/AboutPage";
-import {NotFound} from "pages/NotFound";
-import {ProfilePage} from "pages/ProfilePage";
-import {ArticlePage} from "pages/ArticlePage";
-import {ArticleDetailsPage} from "pages/ArticleDetailsPage";
-import {ArticleChangePage} from "pages/ArticleChangePage";
-import {AdminPanelPage} from "pages/AdminPanelPage";
-import {RolesType} from "entities/User";
+import {MainAsync} from "@/pages/MainPage";
+import {AboutAsync} from "@/pages/AboutPage";
+import {NotFound} from "@/pages/NotFound";
+import {ProfilePage} from "@/pages/ProfilePage";
+import {ArticlePage} from "@/pages/ArticlePage";
+import {ArticleDetailsPage} from "@/pages/ArticleDetailsPage";
+import {ArticleChangePage} from "@/pages/ArticleChangePage";
+import {AdminPanelPage} from "@/pages/AdminPanelPage";
+import {RolesType} from "@/entities/User";
 
 export enum RouteType {
     MAIN = 'main',

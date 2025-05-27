@@ -1,5 +1,5 @@
 import React from 'react';
-import {ThemeProvider, ThemeType} from 'app/providers/ThemeProvider';
+import {ThemeProvider, ThemeType} from '@/app/providers/ThemeProvider';
 
 export function ThemeDecorator(theme: ThemeType) {
     return function Decorator(Story: React.ComponentType) {

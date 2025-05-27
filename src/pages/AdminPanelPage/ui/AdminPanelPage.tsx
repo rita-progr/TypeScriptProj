@@ -1,5 +1,5 @@
 import cls from './AdminPanelPage.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 
 interface AdminPanelPageProps {

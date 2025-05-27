@@ -1,4 +1,4 @@
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 import {render, screen} from "@testing-library/react";
 
 describe('CustomButton',()=>{

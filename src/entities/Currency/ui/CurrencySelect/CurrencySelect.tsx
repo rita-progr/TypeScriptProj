@@ -1,6 +1,6 @@
 import {Currency} from "../../model/types/CurrencySchema";
 import {useCallback} from "react";
-import {ListBox} from "shared/ui/Popups/ui/ListBox/ListBox";
+import {ListBox} from "@/shared/ui/Popups/ui/ListBox/ListBox";
 
 interface CurrencyProps{
     className?: string;

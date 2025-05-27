@@ -1,6 +1,6 @@
 import {Link, LinkProps} from "react-router-dom";
 import cls from './CustomLink.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {FC, memo} from "react";
 
 export enum CustomLinkType {

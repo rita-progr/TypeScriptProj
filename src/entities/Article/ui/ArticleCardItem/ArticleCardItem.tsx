@@ -1,16 +1,16 @@
 import cls from './ArticleCardItem.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Article, ArticleBlockType, ArticleTEXTBlocks, ArticleViews} from "../../model/types/ArticleSchema";
-import {Card} from "shared/ui/Card/Card";
-import {Text} from "shared/ui/Text/Text";
-import {Icon} from "shared/ui/Icon/Icon";
-import EyeIcon from "shared/assets/eyeIcon.svg";
-import {Avatar} from "shared/ui/Avatar/Avatar";
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {Card} from "@/shared/ui/Card/Card";
+import {Text} from "@/shared/ui/Text/Text";
+import {Icon} from "@/shared/ui/Icon/Icon";
+import EyeIcon from "@/shared/assets/eyeIcon.svg";
+import {Avatar} from "@/shared/ui/Avatar/Avatar";
+import {CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
-import {ArticleTextBlockComponent} from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
-import {CustomLink} from "shared/ui/CustomLink/CustomLink";
+import {ArticleTextBlockComponent} from "@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
+import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
+import {CustomLink} from "@/shared/ui/CustomLink/CustomLink";
 
 interface ArticleCardItemProps {
     className?: string;

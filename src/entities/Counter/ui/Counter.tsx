@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
-import {counterActions} from "entities/Counter/model/slice/counterSlice";
+import {counterActions} from "@/entities/Counter/model/slice/counterSlice";
 import {getCounterValue} from "../model/selectors/getCounterValue/getCounterValue";
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 
 export const Counter = () => {
 

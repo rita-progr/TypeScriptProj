@@ -1,7 +1,7 @@
 import cls from './Tabs.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {ReactNode} from "react";
-import {Card, CardTheme} from "shared/ui/Card/Card";
+import {Card, CardTheme} from "@/shared/ui/Card/Card";
 
 export interface TabsType<T extends string> {
     value: string;

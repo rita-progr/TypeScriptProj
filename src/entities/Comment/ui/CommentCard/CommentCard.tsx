@@ -1,11 +1,11 @@
 import cls from './CommentCard.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Comment} from "../../model/types/commentSchema";
-import {Avatar} from "shared/ui/Avatar/Avatar";
-import {Text} from "shared/ui/Text/Text";
-import {Skeleton} from "shared/ui/Skeleton/Skeleton";
-import {CustomLink} from "shared/ui/CustomLink/CustomLink";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import {Avatar} from "@/shared/ui/Avatar/Avatar";
+import {Text} from "@/shared/ui/Text/Text";
+import {Skeleton} from "@/shared/ui/Skeleton/Skeleton";
+import {CustomLink} from "@/shared/ui/CustomLink/CustomLink";
+import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
 
 interface CommentCardProps {
     className?: string;

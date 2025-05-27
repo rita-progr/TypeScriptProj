@@ -1,4 +1,4 @@
-import {StateSchema} from "app/providers/StoreProveder";
+import {StateSchema} from "@/app/providers/StoreProveder";
 import {getProfileData} from "./getProfileData";
 // import avatar from "shared/assets/test/haker.jpeg";
 

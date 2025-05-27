@@ -1,23 +1,23 @@
 import cls from './AriclePageFilters.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {ArticleSortType, ArticleType, ArticleTypeSelector, ArticleViews, ArticleViewSwitcher} from "entities/Article";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {ArticleSortType, ArticleType, ArticleTypeSelector, ArticleViews, ArticleViewSwitcher} from "@/entities/Article";
 import {useCallback} from "react";
-import {ArticlePageActions} from "pages/ArticlePage";
+import {ArticlePageActions} from "@/pages/ArticlePage";
 import {useSelector} from "react-redux";
 import {
     getArticlesPageOrder, getArticlesPageSearch,
     getArticlesPageSort, getArticlesPageType,
     getArticlesPageView
 } from "../../model/selectors/ArticlesPageSelectors";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {ArticleSortSelector} from "entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
-import {Card} from "shared/ui/Card/Card";
-import {Input} from "shared/ui/Input/Input";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {ArticleSortSelector} from "@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
+import {Card} from "@/shared/ui/Card/Card";
+import {Input} from "@/shared/ui/Input/Input";
 import {useTranslation} from "react-i18next";
-import {OrderType} from "shared/types/orderTypes";
-import {fetchArticlesPage} from "pages/ArticlePage/model/services/fetchArticlesPage/fetchArticlesPage";
-import {useDebounce} from "shared/lib/hooks/useDebounce/useDebounce";
-import {Tabs, TabsType} from "shared/ui/Tabs/Tabs";
+import {OrderType} from "@/shared/types/orderTypes";
+import {fetchArticlesPage} from "@/pages/ArticlePage/model/services/fetchArticlesPage/fetchArticlesPage";
+import {useDebounce} from "@/shared/lib/hooks/useDebounce/useDebounce";
+import {Tabs, TabsType} from "@/shared/ui/Tabs/Tabs";
 
 interface AriclePageFiltersProps {
     className?: string;

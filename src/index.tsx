@@ -9,8 +9,8 @@ if (!container) {
 
 const root = createRoot(container);
 import './shared/config/i18n/i18n';
-import {ErrorBoundary} from "app/providers/ErrorBoundary";
-import {StoreProvider} from "app/providers/StoreProveder";
+import {ErrorBoundary} from "@/app/providers/ErrorBoundary";
+import {StoreProvider} from "@/app/providers/StoreProveder";
 root.render(
     <BrowserRouter>
         <StoreProvider>

@@ -1,8 +1,8 @@
 
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import {Text} from "shared/ui/Text/Text";
-import {ArticleCardList} from "entities/Article";
+import {Text} from "@/shared/ui/Text/Text";
+import {ArticleCardList} from "@/entities/Article";
 import {useGetArticleRecommendationList} from "../../api/ArticleRecommendationApi";
 interface ArticleRecommendationListProps {
     className?: string;

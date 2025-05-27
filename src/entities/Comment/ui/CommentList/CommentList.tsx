@@ -1,8 +1,8 @@
 import cls from './CommentList.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {CommentCard} from "../CommentCard/CommentCard";
 import {Comment} from '../../model/types/commentSchema';
-import {Text} from 'shared/ui/Text/Text'
+import {Text} from '@/shared/ui/Text/Text'
 import {useTranslation} from "react-i18next";
 
 interface CommentListProps {

@@ -1,8 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {ArticleDetails} from './ArticleDetails';
-import {Article} from "entities/Article";
-import {ArticleBlockType, ArticleType} from "entities/Article/model/types/ArticleSchema";
-import {ReduxDecorator} from "shared/config/storybook/ReduxDecorator/ReduxDecorator";
+import {Article} from "@/entities/Article";
+import {ArticleBlockType, ArticleType} from "@/entities/Article/model/types/ArticleSchema";
+import {ReduxDecorator} from "@/shared/config/storybook/ReduxDecorator/ReduxDecorator";
 
 
 const meta = {

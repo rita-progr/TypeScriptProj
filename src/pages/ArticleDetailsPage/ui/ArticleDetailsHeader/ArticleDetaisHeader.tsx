@@ -1,12 +1,12 @@
 import cls from './ArticleDetaisHeader.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useNavigate} from "react-router-dom";
 import {useCallback} from "react";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {canEditArticle} from "pages/ArticleDetailsPage/model/selectors/canEditArticle";
+import {canEditArticle} from "@/pages/ArticleDetailsPage/model/selectors/canEditArticle";
 
 interface ArticleDetaisHeaderProps {
     className?: string;

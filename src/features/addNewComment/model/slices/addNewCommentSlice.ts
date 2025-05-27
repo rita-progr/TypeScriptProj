@@ -1,4 +1,4 @@
-import {addNewCommentSchema} from "features/addNewComment";
+import {addNewCommentSchema} from "@/features/addNewComment";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState: addNewCommentSchema = {}

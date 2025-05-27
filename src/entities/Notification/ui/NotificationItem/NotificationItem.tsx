@@ -1,6 +1,6 @@
 import cls from './NotificationItem.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {Text} from "shared/ui/Text/Text";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Text} from "@/shared/ui/Text/Text";
 import {NotificationSchema} from "../../model/types/NotificationSchema";
 
 interface NotificationItemProps {

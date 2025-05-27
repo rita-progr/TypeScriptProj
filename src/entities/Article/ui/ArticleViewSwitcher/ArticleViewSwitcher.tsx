@@ -1,10 +1,10 @@
 import cls from './ArticleViewSwitcher.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import ArticleList from 'shared/assets/bi_list.svg';
-import ArticleTiled from 'shared/assets/fe_tiled.svg'
+import {classNames} from "@/shared/lib/classNames/classNames";
+import ArticleList from '@/shared/assets/bi_list.svg';
+import ArticleTiled from '@/shared/assets/fe_tiled.svg'
 import {ArticleViews} from "../../model/types/ArticleSchema";
-import {Icon} from "shared/ui/Icon/Icon";
-import {CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {Icon} from "@/shared/ui/Icon/Icon";
+import {CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 
 
 

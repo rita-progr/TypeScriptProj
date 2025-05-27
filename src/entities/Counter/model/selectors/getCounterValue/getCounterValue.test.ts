@@ -1,4 +1,4 @@
-import {StateSchema} from "app/providers/StoreProveder";
+import {StateSchema} from "@/app/providers/StoreProveder";
 import {getCounterValue} from "./getCounterValue";
 
 type DeepPartial<T> = {

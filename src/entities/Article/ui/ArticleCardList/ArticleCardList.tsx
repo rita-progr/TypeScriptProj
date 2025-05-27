@@ -1,9 +1,9 @@
 import cls from './ArticleCardList.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Article, ArticleViews} from "../../model/types/ArticleSchema";
 import { ArticleCardItem } from '../ArticleCardItem/ArticleCardItem';
 import {ArticleCardSkeletonItem} from "../ArticleCardItem/ArticleCardSkeleton";
-import {HStack} from "shared/ui/Stack";
+import {HStack} from "@/shared/ui/Stack";
 
 
 interface ArticleCardListProps {

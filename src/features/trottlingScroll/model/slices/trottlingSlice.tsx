@@ -1,4 +1,4 @@
-import {TrottlingSchema} from "features/trottlingScroll";
+import {TrottlingSchema} from "@/features/trottlingScroll";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState: TrottlingSchema = {

@@ -1,4 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 describe('classNames',()=>{
     test('isCorrectly',()=>{
         expect(classNames('someFn')).toBe('someFn');

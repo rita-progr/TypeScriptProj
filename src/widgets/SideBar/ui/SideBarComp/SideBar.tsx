@@ -1,9 +1,9 @@
 import cls from './SideBar.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {memo, useState} from "react";
-import {ThemeSwitchers} from "widgets/ThemeSwitchers";
-import {LanguageSwitcher} from "widgets/LanguageSwitcher";
-import {ButtonSize, ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {ThemeSwitchers} from "@/widgets/ThemeSwitchers";
+import {LanguageSwitcher} from "@/widgets/LanguageSwitcher";
+import {ButtonSize, ColorButton, CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 
 import {SideBarItem} from "../SideBarItem/SideBarItem";
 import {useSelector} from "react-redux";

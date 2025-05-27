@@ -3,14 +3,14 @@ import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView
-} from "pages/ArticlePage/model/selectors/ArticlesPageSelectors";
-import {getArticles} from "pages/ArticlePage/model/slices/ArticleSlice";
-import {ArticleCardList} from "entities/Article";
-import {Text} from 'shared/ui/Text/Text'
+} from "@/pages/ArticlePage/model/selectors/ArticlesPageSelectors";
+import {getArticles} from "@/pages/ArticlePage/model/slices/ArticleSlice";
+import {ArticleCardList} from "@/entities/Article";
+import {Text} from '@/shared/ui/Text/Text'
 import {useSearchParams} from "react-router-dom";
-import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
-import {initArticlesPage} from "pages/ArticlePage/model/services/initArticlesPage/initArticlesPage";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useInitEffect} from "@/shared/lib/hooks/useInitEffect/useInitEffect";
+import {initArticlesPage} from "@/pages/ArticlePage/model/services/initArticlesPage/initArticlesPage";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface ArticleInfinityListProps{
     className?: string;

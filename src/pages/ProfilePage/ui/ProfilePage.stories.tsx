@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import {ThemeDecorator} from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import ProfilePage from './ProfilePage';
-import {ThemeType} from "app/providers/ThemeProvider";
-import {Currency} from "entities/Currency";
-import {Country} from "entities/Country";
-import avatar from 'shared/assets/test/haker.jpeg';
+import {ThemeType} from "@/app/providers/ThemeProvider";
+import {Currency} from "@/entities/Currency";
+import {Country} from "@/entities/Country";
+import avatar from '@/shared/assets/test/haker.jpeg';
 
 
 const meta = {

@@ -1,7 +1,7 @@
 
 import {screen} from "@testing-library/react";
 import {Counter} from "./Counter";
-import {renderComponents} from "shared/lib/tests/renderComponent/RenderComponents";
+import {renderComponents} from "@/shared/lib/tests/renderComponent/RenderComponents";
 
 describe('Counter',()=>{
     test('test render',()=>{

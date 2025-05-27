@@ -1,4 +1,4 @@
-import {CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 

@@ -1,8 +1,8 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import DarkIcon from 'shared/assets/darkIcon.svg';
-import LightIcon from 'shared/assets/lightIcon.svg';
-import {ThemeType, useTheme} from "app/providers/ThemeProvider";
-import {CustomButton, ThemeButton} from "shared/ui/CustomButton/CustomButton";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import DarkIcon from '@/shared/assets/darkIcon.svg';
+import LightIcon from '@/shared/assets/lightIcon.svg';
+import {ThemeType, useTheme} from "@/app/providers/ThemeProvider";
+import {CustomButton, ThemeButton} from "@/shared/ui/CustomButton/CustomButton";
 import {memo} from "react";
 
 

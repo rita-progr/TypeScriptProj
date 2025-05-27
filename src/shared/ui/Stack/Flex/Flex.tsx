@@ -1,5 +1,5 @@
 import cls from './Flex.module.scss';
-import {classNames, Mods} from "shared/lib/classNames/classNames";
+import {classNames, Mods} from "@/shared/lib/classNames/classNames";
 import {ReactNode} from "react";
 
 

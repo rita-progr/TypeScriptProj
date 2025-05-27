@@ -1,7 +1,7 @@
 
-import {classNames} from "shared/lib/classNames/classNames";
-import {Tabs, TabsType} from "shared/ui/Tabs/Tabs";
-import {ArticleType} from "entities/Article";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Tabs, TabsType} from "@/shared/ui/Tabs/Tabs";
+import {ArticleType} from "@/entities/Article";
 
 interface ArticleTypeSelectorProps {
     className?: string;

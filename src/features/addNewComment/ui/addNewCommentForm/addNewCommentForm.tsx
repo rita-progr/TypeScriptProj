@@ -1,13 +1,13 @@
 import cls from './addNewCommentForm.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {Input} from "shared/ui/Input/Input";
-import {CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {Input} from "@/shared/ui/Input/Input";
+import {CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useCallback} from "react";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
 import {getAddCommentFormError, getAddCommentFormText} from "../../model/selectors/getAddComment";
 import {addNewCommentActions, addNewCommentReducer} from "../../model/slices/addNewCommentSlice";
-import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {DynemicModuleLoader, ReducersList} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
 
 export interface addNewCommentFormProps {
     className?: string;

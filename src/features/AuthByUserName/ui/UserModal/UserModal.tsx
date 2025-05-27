@@ -1,7 +1,7 @@
 import cls from './UserModal.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {UserFormAsync} from "../UserForm/UserForm.async";
-import {Modal} from "shared/ui/Modal/Modal";
+import {Modal} from "@/shared/ui/Modal/Modal";
 import {Suspense} from "react";
 
 

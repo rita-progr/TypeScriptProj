@@ -1,18 +1,18 @@
 import cls from './ArticleDetailsPage.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import { ArticleDetails} from "entities/Article";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import { ArticleDetails} from "@/entities/Article";
 import { useParams} from "react-router-dom";
-import {Text} from 'shared/ui/Text/Text'
+import {Text} from '@/shared/ui/Text/Text'
 import {useTranslation} from "react-i18next";
-import {DynemicModuleLoader, ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {AddNewCommentForm} from "features/addNewComment";
+import {DynemicModuleLoader, ReducersList} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {AddNewCommentForm} from "@/features/addNewComment";
 import {useCallback} from "react";
-import {addNewCommentArticle} from "pages/ArticleDetailsPage/model/services/addNewCommentArticle";
-import {ArticleDetailsPageReducer} from "pages/ArticleDetailsPage/model/slice";
+import {addNewCommentArticle} from "@/pages/ArticleDetailsPage/model/services/addNewCommentArticle";
+import {ArticleDetailsPageReducer} from "@/pages/ArticleDetailsPage/model/slice";
 import {ArticleDetailsHeader} from "./ArticleDetailsHeader/ArticleDetaisHeader";
-import {ArticleRecommendationList} from "features/articleRecommendationList";
-import {ArticleCommentsList} from "pages/ArticleDetailsPage/ui/ArticleCommentsList/ArticleCommentsList";
+import {ArticleRecommendationList} from "@/features/articleRecommendationList";
+import {ArticleCommentsList} from "@/pages/ArticleDetailsPage/ui/ArticleCommentsList/ArticleCommentsList";
 
 
 interface ArticleDetailsPageProps {

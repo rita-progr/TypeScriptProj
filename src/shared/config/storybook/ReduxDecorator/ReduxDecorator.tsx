@@ -1,7 +1,7 @@
-import {StoreProvider} from "app/providers/StoreProveder";
-import {ReducersList} from "shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
-import {loginReducer} from "features/AuthByUserName";
-import {ArticleReducer} from "entities/Article/model/slice/ArticleSlice";
+import {StoreProvider} from "@/app/providers/StoreProveder";
+import {ReducersList} from "@/shared/lib/components/DynemicModuleLoader/DynemicModuleLoader";
+import {loginReducer} from "@/features/AuthByUserName";
+import {ArticleReducer} from "@/entities/Article/model/slice/ArticleSlice";
 
 // const defaultAsyncReducers: ReducersList = {
 //     login:  loginReducer,

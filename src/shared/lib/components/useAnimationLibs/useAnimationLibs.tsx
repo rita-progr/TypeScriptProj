@@ -46,6 +46,7 @@ export const AnimationProvider = ({ children }: {children: ReactNode}) => {
 
     return (
         <AnimationContext.Provider
+            //@ts-ignore
             value={value}
         >
             {children}

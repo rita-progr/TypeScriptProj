@@ -1,14 +1,14 @@
 import cls from './Page.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {RefObject, useRef, UIEvent} from "react";
-import {useInfinityScroll} from "shared/lib/hooks/useInfinityScroll/useInfinityScroll";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {getScrollSelector, trottlingActions} from "features/trottlingScroll";
+import {useInfinityScroll} from "@/shared/lib/hooks/useInfinityScroll/useInfinityScroll";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {getScrollSelector, trottlingActions} from "@/features/trottlingScroll";
 import {useLocation} from "react-router-dom";
-import {useInitEffect} from "shared/lib/hooks/useInitEffect/useInitEffect";
+import {useInitEffect} from "@/shared/lib/hooks/useInitEffect/useInitEffect";
 import {useSelector} from "react-redux";
-import {StateSchema} from "app/providers/StoreProveder";
-import {useThrottle} from "shared/lib/hooks/useThrottle/useThrottle";
+import {StateSchema} from "@/app/providers/StoreProveder";
+import {useThrottle} from "@/shared/lib/hooks/useThrottle/useThrottle";
 
 interface PageProps {
     className?: string;

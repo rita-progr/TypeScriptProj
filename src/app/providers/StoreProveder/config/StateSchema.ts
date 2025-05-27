@@ -1,16 +1,16 @@
-import {CounterSchema} from "entities/Counter";
-import {UserSchema} from "entities/User";
-import {AuthByUserNameSchema} from "features/AuthByUserName";
+import {CounterSchema} from "@/entities/Counter";
+import {UserSchema} from "@/entities/User";
+import {AuthByUserNameSchema} from "@/features/AuthByUserName";
 import {AnyAction, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {CombinedState} from "@reduxjs/toolkit/query";
 import {AxiosInstance} from "axios";
-import {ArticleSchema} from "entities/Article";
-import {addNewCommentSchema} from "features/addNewComment";
-import {ArticlesSchema} from "pages/ArticlePage";
-import {TrottlingSchema} from "features/trottlingScroll";
-import {ArticleDetailsPageSchema} from "pages/ArticleDetailsPage/model/types";
-import {rtkApi} from "shared/api/rtkApi";
-import {ProfileSchema} from "features/editableProfileCard";
+import {ArticleSchema} from "@/entities/Article";
+import {addNewCommentSchema} from "@/features/addNewComment";
+import {ArticlesSchema} from "@/pages/ArticlePage";
+import {TrottlingSchema} from "@/features/trottlingScroll";
+import {ArticleDetailsPageSchema} from "@/pages/ArticleDetailsPage/model/types";
+import {rtkApi} from "@/shared/api/rtkApi";
+import {ProfileSchema} from "@/features/editableProfileCard";
 
 
 

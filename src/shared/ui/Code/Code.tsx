@@ -1,6 +1,6 @@
 import cls from './Code.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import CopyIcon from 'shared/assets/Vector.svg'
+import {classNames} from "@/shared/lib/classNames/classNames";
+import CopyIcon from '@/shared/assets/Vector.svg'
 import {memo, useCallback} from "react";
 
 interface CodeProps {

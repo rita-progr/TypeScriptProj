@@ -1,5 +1,5 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import {ColorButton, CustomButton} from "shared/ui/CustomButton/CustomButton";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {ColorButton, CustomButton} from "@/shared/ui/CustomButton/CustomButton";
 import {useTranslation} from "react-i18next";
 import {memo} from "react";
 

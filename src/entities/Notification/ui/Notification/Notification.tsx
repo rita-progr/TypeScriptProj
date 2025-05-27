@@ -1,10 +1,10 @@
 import cls from './Notification.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {useGetNotificationQuery} from "entities/Notification/api/NotificationApi";
-import {VStack} from "shared/ui/Stack";
-import {Skeleton} from "shared/ui/Skeleton/Skeleton";
-import {Text} from 'shared/ui/Text/Text'
-import {NotificationItem} from "entities/Notification/ui/NotificationItem/NotificationItem";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {useGetNotificationQuery} from "@/entities/Notification/api/NotificationApi";
+import {VStack} from "@/shared/ui/Stack";
+import {Skeleton} from "@/shared/ui/Skeleton/Skeleton";
+import {Text} from '@/shared/ui/Text/Text'
+import {NotificationItem} from "@/entities/Notification/ui/NotificationItem/NotificationItem";
 
 interface NotificationProps {
     className?: string;

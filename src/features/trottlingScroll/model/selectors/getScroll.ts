@@ -1,5 +1,5 @@
 import {createSelector} from "@reduxjs/toolkit";
-import {StateSchema} from "app/providers/StoreProveder";
+import {StateSchema} from "@/app/providers/StoreProveder";
 
 
 export const getTrottlingScroll = (state: StateSchema) => state.trottling.scroll
