@@ -9,10 +9,12 @@ import {getUserAuthData, userActions} from "entities/User";
 import {DropDown, Popover} from "shared/ui/Popups";
 import {Avatar} from "shared/ui/Avatar/Avatar";
 import {Button} from "@headlessui/react";
+import { BrowserView, MobileView } from 'react-device-detect';
 import NotificationIcon from 'shared/assets/NotificationIcon.svg'
 import {Icon} from "shared/ui/Icon/Icon";
 import {Notification} from "entities/Notification";
 import {Drawer} from "shared/ui/Drawer/Drawer";
+import {AnimationProvider} from "shared/lib/components/useAnimationLibs/useAnimationLibs";
 
 
 
@@ -50,16 +52,20 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
 
     const {t} = useTranslation();
 
+    const trigger =  (
+        <Button onClick={onOpenDrawer}>
+            <Icon Svg={NotificationIcon} inverted={true}/>
+        </Button>
+    )
+
     if(userData){
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Popover className={cls.popover} direction={'bottom left'} trigger={(
-                    <Button onClick={onOpenDrawer}>
-                        <Icon Svg={NotificationIcon} inverted={true}/>
-                    </Button>
-                )}>
-                    <Notification />
-                </Popover>
+                <BrowserView>
+                    <Popover className={cls.popover} direction={'bottom left'} trigger={trigger}>
+                        <Notification />
+                    </Popover>
+                </BrowserView>
 
                 <DropDown items={[
                     {
@@ -69,9 +75,15 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
                     },
                 ]}
                 trigger={<Avatar size = {30} img={userData.avatar}/>}/>
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <Notification />
-                </Drawer>
+                <MobileView>
+                    {trigger}
+                    <AnimationProvider>
+                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                            <Notification />
+                        </Drawer>
+                    </AnimationProvider>
+                </MobileView>
+
             </header>
                 )
                 }
