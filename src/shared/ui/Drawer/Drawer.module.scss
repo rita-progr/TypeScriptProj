@@ -45,3 +45,10 @@
     transform: translateY(0%);
   }
 }
+
+.isClosing{
+  .content{
+    transition: 0.5s transform;
+    transform: translateY(100%);
+  }
+}
