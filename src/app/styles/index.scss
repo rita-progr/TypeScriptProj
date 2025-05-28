@@ -2,7 +2,7 @@
 @use 'themes/dark';
 @use 'themes/normal';
 @use 'themes/orange';
-@import "variables/global";
+@use "variables/global";
 
 body{
   font: var(--font-m);
