@@ -1,1 +1,1 @@
-export {ThemeSwitchers} from "widgets/ThemeSwitchers/ui/ThemeSwichers";
+export {ThemeSwitchers} from "@/widgets/ThemeSwitchers/ui/ThemeSwichers";

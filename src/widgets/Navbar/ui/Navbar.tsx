@@ -77,11 +77,9 @@ export const Navbar = memo(function Navbar({className}:NavbarProps) {
                 trigger={<Avatar size = {30} img={userData.avatar}/>}/>
                 <MobileView>
                     {trigger}
-                    <AnimationProvider>
                         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
                             <Notification />
                         </Drawer>
-                    </AnimationProvider>
                 </MobileView>
 
             </header>
