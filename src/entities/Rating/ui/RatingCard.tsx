@@ -56,7 +56,7 @@ export const RatingCard = (props: RatingCardProps) => {
     const modalContent = (
         <VStack gap={'32'} max align={"start"}>
             <Text title={titleFeedback}/>
-            <Input placeholder={'Оставить отзыв'}/>
+            <Input placeholder={'Оставить отзыв'} value = {feedBack} onChange={setFeedBack}/>
             <HStack gap={"8"} align={"center"} justify={'end'}>
                 <CustomButton theme={ThemeButton.OUTLINE} onClick={cancelHandle}>
                     <Text text = {'Закрыть'}/>
