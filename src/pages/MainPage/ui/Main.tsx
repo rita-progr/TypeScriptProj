@@ -2,6 +2,7 @@ import cls from './Main.module.scss';
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import {Counter} from "@/entities/Counter";
+import {RatingCard} from "@/entities/Rating";
 
 
 const Main = () => {
@@ -11,6 +12,9 @@ const Main = () => {
         <div className={classNames(cls.Main,{},[])} data-testid = "main">
             {t('main')}
             <Counter />
+            <RatingCard hasFeedback={true}
+                        title={'Поставьте нам оценку'}
+            titleFeedback={'Будем благодарны за отзыв'}/>
         </div>
     )
 }
